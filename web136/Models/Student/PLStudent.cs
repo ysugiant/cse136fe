@@ -37,7 +37,32 @@ namespace web136.Models.Student
     [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
     public string Password { get; set; }
 
+    [Required]
+    [DisplayName("Shoe Size")]
+    [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
+    public float ShoeSize { get; set; }
+
+    [Required]
+    [DisplayName("Weight")]
+    [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
+    public int Weight { get; set; }
+
+    [Required]
+    [DisplayName("Student Level")]
+    [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
+    public int StudentLevel { get; set; }
+
+    [Required]
+    [DisplayName("Status")]
+    [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
+    public int Status { get; set; }
+
+    [Required]
+    [DisplayName("Major")]
+    [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
+    public int Major { get; set; }
+
     [DisplayName("Enrollment")]
-    public List<PLSchedule> Enrollments { get; set; }
+    public List<PLScheduledCourse> Enrollments { get; set; }
   }
 }

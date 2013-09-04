@@ -69,7 +69,8 @@ namespace web136.Models.Student
       SLStudent.GetStudentRequest request = new SLStudent.GetStudentRequest(id, errors);
       SLStudent.GetStudentResponse response = SLStudent.GetStudent(request);
       SLStudent.Student newStudent = response.GetStudentResult;
-
+      //System.Diagnostics.Debug.WriteLine("newStudent value: " + newStudent.ToString());
+      System.Diagnostics.Debug.WriteLine("response: " + response.GetStudentResult);
       // this is the data transfer object code...
       return DTO_to_PL(newStudent);
     }
@@ -131,7 +132,7 @@ namespace web136.Models.Student
       PLStudent.EmailAddress = student.email;
       PLStudent.Password = student.password;
 
-      if (student.enrolled != null)
+      /*if (student.enrolled != null)
       {
         PLStudent.Enrollments = new List<PLSchedule>();
         foreach (SLStudent.Schedule schedule in student.enrolled)
@@ -139,7 +140,7 @@ namespace web136.Models.Student
           PLSchedule s = DTO_to_PL(schedule); // method overloading
           PLStudent.Enrollments.Add(s);
         }
-      }
+      }*/
       return PLStudent;
     }
 
