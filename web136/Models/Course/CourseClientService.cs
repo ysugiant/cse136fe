@@ -12,7 +12,7 @@ namespace web136.Models.Course
       List<PLCourse> courseList = new List<PLCourse>();
 
       SLCourse.SLCourseClient client = new SLCourse.SLCourseClient();
-      SLCourse.Course[] coursesLoaded = client.GetCourseList();
+      SLCourse.Course[] coursesLoaded = client.GetCourseList();//JUSTIN : don't we need to pass in the List<string> errors?
 
       if (coursesLoaded != null)
       {
