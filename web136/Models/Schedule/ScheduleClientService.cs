@@ -7,9 +7,9 @@ namespace web136.Models.Schedule
 {
   public static class ScheduleClientService
   {
-    public static List<PLSchedule> GetScheduleList(string year, string quarter)
+    public static List<PLScheduledCourse> GetScheduleList(string year, string quarter)
     {
-      List<PLSchedule> scheduleList = new List<PLSchedule>();
+      List<PLScheduledCourse> scheduleList = new List<PLScheduledCourse>();
 
       SLSchedule.ISLSchedule client = new SLSchedule.SLScheduleClient();
 
@@ -22,16 +22,16 @@ namespace web136.Models.Schedule
       {
         foreach (SLSchedule.Schedule s in schedulesLoaded)
         {
-          PLSchedule schedule = DTO_to_PL(s);
+          PLScheduledCourse schedule = DTO_to_PL(s);
           scheduleList.Add(schedule);
         }
       }
       return scheduleList;
     }
 
-    private static PLSchedule DTO_to_PL(SLSchedule.Schedule s)
+    private static PLScheduledCourse DTO_to_PL(SLSchedule.Schedule s)
     {
-      PLSchedule mySchedule = new PLSchedule();
+      PLScheduledCourse mySchedule = new PLScheduledCourse();
 
       mySchedule.schedule_id = s.id;
       mySchedule.year = s.year;
