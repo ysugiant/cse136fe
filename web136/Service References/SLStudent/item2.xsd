@@ -78,36 +78,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="EnrollSchedule">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="student_id" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="schedule_id" type="xs:int" />
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="errors" nillable="true" type="q15:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="EnrollScheduleResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="errors" nillable="true" type="q16:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DropEnrolledSchedule">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="student_id" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="schedule_id" type="xs:int" />
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="errors" nillable="true" type="q17:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DropEnrolledScheduleResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="errors" nillable="true" type="q18:ArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>

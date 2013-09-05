@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0cef6ffc-9069-4056-a9eb-89285e119617" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="440635ec-4157-43a6-965a-3473d9e71428" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="43ef4507-376c-4519-aec9-fcd77e94835c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="25748adf-4b50-4fab-818f-9add290939b3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="498dcff8-063d-4b90-9593-8f6f29b1da26" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" />
+    <MetadataFile FileName="POCO.xsd" MetadataType="Schema" ID="8460b417-8929-4f4d-8fc0-5b5b0dfb72ae" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLDepartment/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

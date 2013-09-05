@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SLMajor" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/POCO" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISLMajor_InsertMajor_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMajor" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_InsertMajor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMajorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_UpdateMajor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMajor" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_UpdateMajor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMajorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_DeleteMajor_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMajor" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_DeleteMajor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMajorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_GetMajorDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMajorDetail" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_GetMajorDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMajorDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_GetMajorList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMajorList" />
+  </wsdl:message>
+  <wsdl:message name="ISLMajor_GetMajorList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMajorListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISLMajor">
+    <wsdl:operation name="InsertMajor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMajor/InsertMajor" message="tns:ISLMajor_InsertMajor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMajor/InsertMajorResponse" message="tns:ISLMajor_InsertMajor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMajor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMajor/UpdateMajor" message="tns:ISLMajor_UpdateMajor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMajor/UpdateMajorResponse" message="tns:ISLMajor_UpdateMajor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMajor">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMajor/DeleteMajor" message="tns:ISLMajor_DeleteMajor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMajor/DeleteMajorResponse" message="tns:ISLMajor_DeleteMajor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMajor/GetMajorDetail" message="tns:ISLMajor_GetMajorDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMajor/GetMajorDetailResponse" message="tns:ISLMajor_GetMajorDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLMajor/GetMajorList" message="tns:ISLMajor_GetMajorList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLMajor/GetMajorListResponse" message="tns:ISLMajor_GetMajorList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISLMajor" type="tns:ISLMajor">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertMajor">
+      <soap:operation soapAction="http://tempuri.org/ISLMajor/InsertMajor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMajor">
+      <soap:operation soapAction="http://tempuri.org/ISLMajor/UpdateMajor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMajor">
+      <soap:operation soapAction="http://tempuri.org/ISLMajor/DeleteMajor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorDetail">
+      <soap:operation soapAction="http://tempuri.org/ISLMajor/GetMajorDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMajorList">
+      <soap:operation soapAction="http://tempuri.org/ISLMajor/GetMajorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SLMajor">
+    <wsdl:port name="BasicHttpBinding_ISLMajor" binding="tns:BasicHttpBinding_ISLMajor">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

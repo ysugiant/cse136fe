@@ -147,7 +147,7 @@
     <Compile Include="Models\Course\PLCourse.cs" />
     <Compile Include="Models\Logon\LogonClientService.cs" />
     <Compile Include="Models\Logon\PLLogon.cs" />
-    <Compile Include="Models\Schedule\PLSchedule.cs" />
+    <Compile Include="Models\Schedule\PLScheduledCourse.cs" />
     <Compile Include="Models\Schedule\ScheduleClientService.cs" />
     <Compile Include="Models\Student\PLStudent.cs" />
     <Compile Include="Models\Student\StudentClientService.cs" />
@@ -162,7 +162,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\SLDepartment\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLEnrollment\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLMajor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLScheduleDay\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLScheduleTime\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\SLSchedule\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SLStaff\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -273,6 +303,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Service References\SLAuth\web136.SLAuth.AuthenticateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLAuth\web136.SLAuth.Logon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SLCourse\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -282,8 +318,172 @@
     <None Include="Service References\SLCourse\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLCourse\SLCourse.wsdl" />
+    <None Include="Service References\SLCourse\item3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLCourse\SLCourse.wsdl" />
     <Content Include="Service References\SLCourse\web136.SLCourse.Course.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.DeleteCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.DeletePrerequisiteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.GetCourseListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.GetCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.InsertCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.InsertPrerequisiteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.UpdateCourseResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLCourse\web136.SLCourse.UpdatePrerequisiteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLDepartment\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLDepartment\POCO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLDepartment\service.wsdl" />
+    <None Include="Service References\SLDepartment\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLDepartment\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.DeleteDepartmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.Department.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.GetDepartmentDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.InsertDepartmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.UpdateDepartmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLEnrollment\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLEnrollment\POCO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLDepartment\configuration91.svcinfo" />
+    <Content Include="Service References\SLDepartment\configuration.svcinfo" />
+    <Content Include="Service References\SLDepartment\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\SLEnrollment\service.wsdl" />
+    <None Include="Service References\SLEnrollment\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLEnrollment\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLEnrollment\web136.SLEnrollment.DeleteEnrollmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLEnrollment\web136.SLEnrollment.Enrollment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLEnrollment\web136.SLEnrollment.GetEnrollmentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLEnrollment\web136.SLEnrollment.InsertEnrollmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLEnrollment\web136.SLEnrollment.UpdateEnrollmentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLMajor\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLMajor\POCO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLEnrollment\configuration91.svcinfo" />
+    <Content Include="Service References\SLEnrollment\configuration.svcinfo" />
+    <Content Include="Service References\SLEnrollment\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\SLMajor\service.wsdl" />
+    <None Include="Service References\SLMajor\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLMajor\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLMajor\web136.SLMajor.DeleteMajorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLMajor\web136.SLMajor.GetMajorDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLMajor\web136.SLMajor.GetMajorListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLMajor\web136.SLMajor.InsertMajorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLMajor\web136.SLMajor.Major.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLMajor\web136.SLMajor.UpdateMajorResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLScheduleDay\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLScheduleDay\service.wsdl" />
+    <None Include="Service References\SLScheduleDay\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLScheduleDay\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLScheduleDay\web136.SLScheduleDay.DeleteScheduleDayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLScheduleDay\web136.SLScheduleDay.GetScheduleDayListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLScheduleDay\web136.SLScheduleDay.InsertScheduleDayResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLScheduleTime\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLScheduleTime\service.wsdl" />
+    <None Include="Service References\SLScheduleTime\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLScheduleTime\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLScheduleTime\web136.SLScheduleTime.DeleteScheduleTimeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLScheduleTime\web136.SLScheduleTime.GetScheduleTimeListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLScheduleTime\web136.SLScheduleTime.InsertScheduleTimeResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\SLSchedule\item.disco" />
@@ -293,6 +493,73 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Service References\SLMajor\configuration91.svcinfo" />
+    <Content Include="Service References\SLMajor\configuration.svcinfo" />
+    <Content Include="Service References\SLMajor\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service References\SLScheduleDay\configuration91.svcinfo" />
+    <Content Include="Service References\SLScheduleDay\configuration.svcinfo" />
+    <Content Include="Service References\SLScheduleDay\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Service References\SLScheduleTime\configuration91.svcinfo" />
+    <None Include="Service References\SLScheduleTime\configuration.svcinfo" />
+    <None Include="Service References\SLScheduleTime\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.DeleteCourseScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.GetCourseScheduleDetailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.GetScheduleListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.InsertCourseScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.ScheduledCourse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.UpdateCourseScheduleResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\SLStaff\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLStaff\POCO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLStaff\service.wsdl" />
+    <None Include="Service References\SLStaff\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SLStaff\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SLStaff\web136.SLStaff.DeleteStaffResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLStaff\web136.SLStaff.GetStaffListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLStaff\web136.SLStaff.GetStaffResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLStaff\web136.SLStaff.InsertStaffResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLStaff\web136.SLStaff.Staff.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\SLStaff\web136.SLStaff.UpdateStaffResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SLStudent\item.disco" />
     <None Include="Service References\SLStudent\configuration91.svcinfo" />
     <None Include="Service References\SLStudent\configuration.svcinfo" />
@@ -300,10 +567,16 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\SLCourse\item.disco" />
-    <Content Include="Service References\SLCourse\configuration91.svcinfo" />
-    <Content Include="Service References\SLCourse\configuration.svcinfo" />
-    <Content Include="Service References\SLCourse\Reference.svcmap">
+    <None Include="Service References\SLCourse\item.disco" />
+    <None Include="Service References\SLCourse\configuration91.svcinfo" />
+    <None Include="Service References\SLCourse\configuration.svcinfo" />
+    <None Include="Service References\SLCourse\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Service References\SLStaff\configuration91.svcinfo" />
+    <Content Include="Service References\SLStaff\configuration.svcinfo" />
+    <Content Include="Service References\SLStaff\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
@@ -334,12 +607,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLAuth\SLAuth.wsdl" />
-    <Content Include="Service References\SLAuth\web136.SLAuth.AuthenticateResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SLAuth\web136.SLAuth.Logon.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\SLSchedule\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -353,12 +620,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLSchedule\SLSchedule.wsdl" />
-    <Content Include="Service References\SLSchedule\web136.SLSchedule.GetScheduleListResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SLSchedule\web136.SLSchedule.Schedule.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\SLStudent\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -372,13 +633,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLStudent\SLStudent.wsdl" />
+    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Shared\Breadcrumb.cshtml" />
+    <Content Include="Views\Shared\StudentEnrollment.cshtml" />
+    <Content Include="Views\Student\DisplayTemplates\PLStudent.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\List.cshtml" />
+    <Content Include="Views\Student\Error.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Service References\SLStudent\web136.SLStudent.DeleteStudentResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SLStudent\web136.SLStudent.DropEnrolledScheduleResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\SLStudent\web136.SLStudent.EnrollScheduleResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\SLStudent\web136.SLStudent.GetStudentListResponse.datasource">
@@ -396,18 +663,6 @@
     <Content Include="Service References\SLStudent\web136.SLStudent.UpdateStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Views\Schedule\Index.cshtml" />
-    <Content Include="Views\Shared\Breadcrumb.cshtml" />
-    <Content Include="Views\Shared\StudentEnrollment.cshtml" />
-    <Content Include="Views\Student\DisplayTemplates\PLStudent.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\List.cshtml" />
-    <Content Include="Views\Student\Error.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Staff\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
-    <Content Include="Views\Admin\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -421,7 +676,13 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\SLAuth\" />
     <WCFMetadataStorage Include="Service References\SLCourse\" />
+    <WCFMetadataStorage Include="Service References\SLDepartment\" />
+    <WCFMetadataStorage Include="Service References\SLEnrollment\" />
+    <WCFMetadataStorage Include="Service References\SLMajor\" />
+    <WCFMetadataStorage Include="Service References\SLScheduleDay\" />
+    <WCFMetadataStorage Include="Service References\SLScheduleTime\" />
     <WCFMetadataStorage Include="Service References\SLSchedule\" />
+    <WCFMetadataStorage Include="Service References\SLStaff\" />
     <WCFMetadataStorage Include="Service References\SLStudent\" />
   </ItemGroup>
   <PropertyGroup>

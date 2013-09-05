@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/POCO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/POCO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfEnrollment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Enrollment" nillable="true" type="tns:Enrollment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEnrollment" nillable="true" type="tns:ArrayOfEnrollment" />
+  <xs:complexType name="Enrollment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ScheduledCourse" nillable="true" type="tns:ScheduledCourse" />
+      <xs:element minOccurs="0" name="grade" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Enrollment" nillable="true" type="tns:Enrollment" />
+  <xs:complexType name="ScheduledCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="course" nillable="true" type="tns:Course" />
+      <xs:element minOccurs="0" name="day" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="dayID" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="instr_id" type="xs:int" />
+      <xs:element minOccurs="0" name="instructor_fName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="instructor_lName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="quarter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="session" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="timeID" type="xs:int" />
+      <xs:element minOccurs="0" name="year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ScheduledCourse" nillable="true" type="tns:ScheduledCourse" />
+  <xs:complexType name="Course">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="level" type="tns:CourseLevel" />
+      <xs:element minOccurs="0" name="prerequisite_list" nillable="true" type="tns:ArrayOfCourse" />
+      <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="units" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Course" nillable="true" type="tns:Course" />
+  <xs:simpleType name="CourseLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="lower" />
+      <xs:enumeration value="upper" />
+      <xs:enumeration value="grad" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CourseLevel" nillable="true" type="tns:CourseLevel" />
+  <xs:complexType name="ArrayOfCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Course" nillable="true" type="tns:Course" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCourse" nillable="true" type="tns:ArrayOfCourse" />
+</xs:schema>

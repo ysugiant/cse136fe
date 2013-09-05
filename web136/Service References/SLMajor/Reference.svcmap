@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b3fdd13c-351c-4712-8b33-6b9d0ad4db93" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="aa1f9997-d5bf-481a-a17d-ce8d7df8c967" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="63f4138a-c414-4495-acb0-4bf35f58644a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="a792b36b-62a4-4cae-919c-386636cc34e6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" />
+    <MetadataFile FileName="POCO.xsd" MetadataType="Schema" ID="8c9d2db8-bb8c-40f7-993c-e239f4c34ad1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="4d8e6643-5e04-4d1c-9739-6a20eb6eedee" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/SL136/SLMajor/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
