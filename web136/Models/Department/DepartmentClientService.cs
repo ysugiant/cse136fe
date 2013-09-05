@@ -78,7 +78,7 @@ namespace web136.Models.Department
     /// call service layer's delete department method
     /// </summary>
     /// <param name="id"></param>
-    public static bool Delete(string id)
+    public static bool DeleteDepartment(string id)
     {
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
       string[] errors = new string[0];

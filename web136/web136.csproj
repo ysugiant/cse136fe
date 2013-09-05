@@ -132,6 +132,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EnrollmentController.cs" />
     <Compile Include="Controllers\ScheduleDayController.cs" />
     <Compile Include="Controllers\ScheduleTimeController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
@@ -676,6 +678,8 @@
     <Content Include="Service References\SLStudent\web136.SLStudent.UpdateStudentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Views\ScheduleDay\List.cshtml" />
+    <Content Include="Views\ScheduleDay\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

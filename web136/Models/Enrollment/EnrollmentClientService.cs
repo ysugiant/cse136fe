@@ -48,7 +48,7 @@ namespace web136.Models.Enrollment
     {
       SLEnrollment.ISLEnrollment SLEnrollment = new SLEnrollment.SLEnrollmentClient();
       string[] errors = new string[0];
-      SLEnrollment.UpdateEnrollmentRequest request = new SLEnrollment.UpdateEnrollmentRequest(student_id, id, grade, errors);
+      SLEnrollment.UpdateEnrollmentRequest request = new SLEnrollment.UpdateEnrollmentRequest(student_id, schedule_id, grade, errors);
       SLEnrollment.UpdateEnrollment(request);
     }
 

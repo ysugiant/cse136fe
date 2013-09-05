@@ -1,0 +1,35 @@
+﻿@model IEnumerable<web136.Models.ScheduleDay.PLScheduleDay>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student List</h2>
+
+<table id="tableScheduleDayList">
+    <tr>
+        <th></th>
+        <th>Schedule Day
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td style="width:50px;">
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+            </td>
+            <td>
+                @item.scheduleDay
+            </td>
+        </tr>
+    
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
