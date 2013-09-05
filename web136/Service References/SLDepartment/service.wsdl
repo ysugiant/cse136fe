@@ -14,6 +14,12 @@
   <wsdl:message name="ISLDepartment_GetDepartmentDetail_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDepartmentDetailResponse" />
   </wsdl:message>
+  <wsdl:message name="ISLDepartment_GetDepartmentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentList" />
+  </wsdl:message>
+  <wsdl:message name="ISLDepartment_GetDepartmentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentListResponse" />
+  </wsdl:message>
   <wsdl:message name="ISLDepartment_InsertDepartment_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertDepartment" />
   </wsdl:message>
@@ -37,6 +43,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISLDepartment/GetDepartmentDetail" message="tns:ISLDepartment_GetDepartmentDetail_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISLDepartment/GetDepartmentDetailResponse" message="tns:ISLDepartment_GetDepartmentDetail_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLDepartment/GetDepartmentList" message="tns:ISLDepartment_GetDepartmentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLDepartment/GetDepartmentListResponse" message="tns:ISLDepartment_GetDepartmentList_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertDepartment">
       <wsdl:input wsaw:Action="http://tempuri.org/ISLDepartment/InsertDepartment" message="tns:ISLDepartment_InsertDepartment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISLDepartment/InsertDepartmentResponse" message="tns:ISLDepartment_InsertDepartment_OutputMessage" />
@@ -54,6 +64,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetDepartmentDetail">
       <soap:operation soapAction="http://tempuri.org/ISLDepartment/GetDepartmentDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <soap:operation soapAction="http://tempuri.org/ISLDepartment/GetDepartmentList" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

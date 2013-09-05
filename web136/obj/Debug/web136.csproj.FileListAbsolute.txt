@@ -62,3 +62,6 @@ C:\Users\Justin\Documents\GitHub\cse136fe\web136\bin\System.Web.WebPages.Razor.x
 C:\Users\Justin\Documents\GitHub\cse136fe\web136\obj\Debug\web136.csprojResolveAssemblyReference.cache
 C:\Users\Justin\Documents\GitHub\cse136fe\web136\obj\Debug\web136.dll
 C:\Users\Justin\Documents\GitHub\cse136fe\web136\obj\Debug\web136.pdb
+C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.csprojResolveAssemblyReference.cache
+C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.dll
+C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.pdb

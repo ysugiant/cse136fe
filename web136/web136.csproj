@@ -145,8 +145,16 @@
     <Compile Include="Models\Breadcrumb.cs" />
     <Compile Include="Models\Course\CourseClientService.cs" />
     <Compile Include="Models\Course\PLCourse.cs" />
+    <Compile Include="Models\Department\PLDepartment.cs" />
+    <Compile Include="Models\Department\DepartmentClientService.cs" />
+    <Compile Include="Models\Enrollment\PLEnrollment.cs" />
+    <Compile Include="Models\Enrollment\EnrollmentClientService.cs" />
     <Compile Include="Models\Logon\LogonClientService.cs" />
     <Compile Include="Models\Logon\PLLogon.cs" />
+    <Compile Include="Models\ScheduleDay\PLScheduleDay.cs" />
+    <Compile Include="Models\ScheduleDay\ScheduleDayClientService.cs" />
+    <Compile Include="Models\ScheduleTime\PLScheduleTime.cs" />
+    <Compile Include="Models\ScheduleTime\ScheduleTimeClientService.cs" />
     <Compile Include="Models\Schedule\PLScheduledCourse.cs" />
     <Compile Include="Models\Schedule\ScheduleClientService.cs" />
     <Compile Include="Models\Student\PLStudent.cs" />
@@ -355,7 +363,7 @@
     <None Include="Service References\SLDepartment\POCO.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLDepartment\service.wsdl" />
+    <None Include="Service References\SLDepartment\service.wsdl" />
     <None Include="Service References\SLDepartment\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -377,18 +385,21 @@
     <Content Include="Service References\SLDepartment\web136.SLDepartment.UpdateDepartmentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\SLDepartment\web136.SLDepartment.GetDepartmentListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SLEnrollment\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLEnrollment\POCO.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLDepartment\configuration91.svcinfo" />
-    <Content Include="Service References\SLDepartment\configuration.svcinfo" />
-    <Content Include="Service References\SLDepartment\Reference.svcmap">
+    <None Include="Service References\SLDepartment\configuration91.svcinfo" />
+    <None Include="Service References\SLDepartment\configuration.svcinfo" />
+    <None Include="Service References\SLDepartment\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Service References\SLEnrollment\service.wsdl" />
     <None Include="Service References\SLEnrollment\service.xsd">
       <SubType>Designer</SubType>

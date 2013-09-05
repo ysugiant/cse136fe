@@ -101,6 +101,13 @@ namespace web136.SLDepartment {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLDepartment/GetDepartmentDetail", ReplyAction="http://tempuri.org/ISLDepartment/GetDepartmentDetailResponse")]
         System.Threading.Tasks.Task<web136.SLDepartment.GetDepartmentDetailResponse> GetDepartmentDetailAsync(web136.SLDepartment.GetDepartmentDetailRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLDepartment/GetDepartmentList", ReplyAction="http://tempuri.org/ISLDepartment/GetDepartmentListResponse")]
+        web136.SLDepartment.GetDepartmentListResponse GetDepartmentList(web136.SLDepartment.GetDepartmentListRequest request);
+        
+        // CODEGEN: Generating message contract since the operation has multiple return values.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLDepartment/GetDepartmentList", ReplyAction="http://tempuri.org/ISLDepartment/GetDepartmentListResponse")]
+        System.Threading.Tasks.Task<web136.SLDepartment.GetDepartmentListResponse> GetDepartmentListAsync(web136.SLDepartment.GetDepartmentListRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISLDepartment/InsertDepartment", ReplyAction="http://tempuri.org/ISLDepartment/InsertDepartmentResponse")]
         web136.SLDepartment.InsertDepartmentResponse InsertDepartment(web136.SLDepartment.InsertDepartmentRequest request);
         
@@ -159,6 +166,42 @@ namespace web136.SLDepartment {
         
         public GetDepartmentDetailResponse(web136.SLDepartment.Department GetDepartmentDetailResult, string[] errors) {
             this.GetDepartmentDetailResult = GetDepartmentDetailResult;
+            this.errors = errors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDepartmentList", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDepartmentListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string[] errors;
+        
+        public GetDepartmentListRequest() {
+        }
+        
+        public GetDepartmentListRequest(string[] errors) {
+            this.errors = errors;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetDepartmentListResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetDepartmentListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public web136.SLDepartment.Department[] GetDepartmentListResult;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
+        public string[] errors;
+        
+        public GetDepartmentListResponse() {
+        }
+        
+        public GetDepartmentListResponse(web136.SLDepartment.Department[] GetDepartmentListResult, string[] errors) {
+            this.GetDepartmentListResult = GetDepartmentListResult;
             this.errors = errors;
         }
     }
@@ -314,6 +357,23 @@ namespace web136.SLDepartment {
         
         public System.Threading.Tasks.Task<web136.SLDepartment.GetDepartmentDetailResponse> GetDepartmentDetailAsync(web136.SLDepartment.GetDepartmentDetailRequest request) {
             return base.Channel.GetDepartmentDetailAsync(request);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        web136.SLDepartment.GetDepartmentListResponse web136.SLDepartment.ISLDepartment.GetDepartmentList(web136.SLDepartment.GetDepartmentListRequest request) {
+            return base.Channel.GetDepartmentList(request);
+        }
+        
+        public web136.SLDepartment.Department[] GetDepartmentList(ref string[] errors) {
+            web136.SLDepartment.GetDepartmentListRequest inValue = new web136.SLDepartment.GetDepartmentListRequest();
+            inValue.errors = errors;
+            web136.SLDepartment.GetDepartmentListResponse retVal = ((web136.SLDepartment.ISLDepartment)(this)).GetDepartmentList(inValue);
+            errors = retVal.errors;
+            return retVal.GetDepartmentListResult;
+        }
+        
+        public System.Threading.Tasks.Task<web136.SLDepartment.GetDepartmentListResponse> GetDepartmentListAsync(web136.SLDepartment.GetDepartmentListRequest request) {
+            return base.Channel.GetDepartmentListAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

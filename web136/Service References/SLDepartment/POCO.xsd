@@ -8,4 +8,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
 </xs:schema>
