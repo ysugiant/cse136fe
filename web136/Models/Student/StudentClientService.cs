@@ -98,9 +98,9 @@ namespace web136.Models.Student
 
     public static void Enroll(string student_id, int schedule_id)
     {
-      SLStudent.ISLStudent SLStudent = new SLStudent.SLStudentClient();
+      SLEnrollment.ISLEnrollment SLEnrollment = new SLEnrollment.SLEnrollmentClient();
       string[] errors = new string[0];
-      SLStudent.EnrollScheduleRequest request = new SLStudent.EnrollScheduleRequest(student_id, schedule_id, errors);
+      SLEnrollment.EnrollScheduleRequest request = new SLStudent.EnrollScheduleRequest(student_id, schedule_id, errors);
       SLStudent.EnrollSchedule(request);
     }
 
@@ -163,16 +163,16 @@ namespace web136.Models.Student
       return SLStudent;
     }
 
-    private static PLSchedule DTO_to_PL(SLStudent.Schedule s)
+    private static PLScheduledCourse DTO_to_PL(SLStudent.ScheduledCourse s)
     {
-      PLSchedule mySchedule = new PLSchedule();
+        PLScheduledCourse mySchedule = new PLScheduledCourse();
 
       mySchedule.schedule_id = s.id;
       mySchedule.year = s.year;
       mySchedule.quarter = s.quarter;
       mySchedule.session = s.session;
-      mySchedule.course_title = s.course.title;
-      mySchedule.course_description = s.course.description;
+      mySchedule.course.title = s.course.title;
+      mySchedule.course.description = s.course.description;
 
       return mySchedule;
     }
