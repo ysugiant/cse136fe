@@ -80,7 +80,7 @@ namespace web136.Models.Enrollment
       PLEnrollment PLEnrollment = new PLEnrollment();
       PLEnrollment.scheduledCourse = DTO_to_PL(enrollment.ScheduledCourse);
       PLEnrollment.grade = enrollment.grade;
-
+        
       return PLEnrollment;
     }
 

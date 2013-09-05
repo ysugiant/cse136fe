@@ -50,7 +50,7 @@ namespace web136.Models.Student
     [Required]
     [DisplayName("Student Level")]
     [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
-    public int StudentLevel { get; set; }
+    public string StudentLevel { get; set; }
 
     [Required]
     [DisplayName("Status")]
@@ -63,6 +63,6 @@ namespace web136.Models.Student
     public int Major { get; set; }
 
     [DisplayName("Enrollment")]
-    public List<PLScheduledCourse> Enrollments { get; set; }
+    public List<SLSchedule.ScheduledCourse> Enrollments { get; set; }
   }
 }
