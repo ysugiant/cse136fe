@@ -114,7 +114,7 @@ namespace web136.Controllers
     {
       try
       {
-        bool success = StudentClientService.Delete(id);
+        bool success = StudentClientService.DeleteStudent(id);
 
         if (success)
           return RedirectToAction("Index");
@@ -125,43 +125,6 @@ namespace web136.Controllers
       {
         return View();
       }
-    }
-
-    //
-    // GET: /Student/Enroll/100
-    public ActionResult Enroll(int schedule_id)
-    {
-      string student_id = Session["id"].ToString();
-
-      if (HttpContext != null)
-      {
-        UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
-        ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Student") + "'>Student List</a>";
-        ViewBag.breadCrumbData += " > Details";
-      }
-      StudentClientService.Enroll(student_id, schedule_id);
-
-      PLStudent student = StudentClientService.GetStudentDetail(student_id);
-      return RedirectToAction("Index", "Schedule", student);
-
-    }
-
-    //
-    // GET: /Student/Drop/100
-    public ActionResult Drop(int schedule_id)
-    {
-      string student_id = Session["id"].ToString();
-
-      if (HttpContext != null)
-      {
-        UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
-        ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Student") + "'>Student List</a>";
-        ViewBag.breadCrumbData += " > Details";
-      }
-      StudentClientService.Drop(student_id, schedule_id);
-
-      PLStudent student = StudentClientService.GetStudentDetail(student_id);
-      return RedirectToAction("Index", "Schedule", student);
     }
 
     public ActionResult Error()

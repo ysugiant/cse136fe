@@ -8,7 +8,7 @@ using web136.Models.Student;
 
 namespace web136.Controllers
 {
-  public class ScheduleController : Controller
+  public class ScheduledCourseController : Controller
   {
     //
     // GET: /Schedule/
@@ -25,7 +25,7 @@ namespace web136.Controllers
       PLStudent student = StudentClientService.GetStudentDetail(student_id);
       ViewBag.student = student;
 
-      List<PLSchedule> scheduleList = ScheduleClientService.GetScheduleList(yearFilter, quarterFilter);
+      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
 
       int year = DateTime.Now.Year;
       int previousYear = year - 1;
@@ -66,7 +66,7 @@ namespace web136.Controllers
       PLStudent student = StudentClientService.GetStudentDetail(student_id);
       ViewBag.student = student;
 
-      List<PLSchedule> scheduleList = ScheduleClientService.GetScheduleList(yearFilter, quarterFilter);
+      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
 
       return Json(scheduleList);
     }
