@@ -63,6 +63,6 @@ namespace web136.Models.Student
     public int Major { get; set; }
 
     [DisplayName("Enrollment")]
-    public List<SLSchedule.ScheduledCourse> Enrollments { get; set; }
+    public List<PLScheduledCourse> Enrollments { get; set; }
   }
 }
