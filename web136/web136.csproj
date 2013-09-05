@@ -155,6 +155,8 @@
     <Compile Include="Models\Enrollment\EnrollmentClientService.cs" />
     <Compile Include="Models\Logon\LogonClientService.cs" />
     <Compile Include="Models\Logon\PLLogon.cs" />
+    <Compile Include="Models\Major\MajorClientService.cs" />
+    <Compile Include="Models\Major\PLMajor.cs" />
     <Compile Include="Models\ScheduleDay\PLScheduleDay.cs" />
     <Compile Include="Models\ScheduleDay\ScheduleDayClientService.cs" />
     <Compile Include="Models\ScheduleTime\PLScheduleTime.cs" />
