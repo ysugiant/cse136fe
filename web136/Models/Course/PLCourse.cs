@@ -19,7 +19,7 @@ namespace web136.Models.Course
 
       [Required]
       [DisplayName("Course Level")]
-      public int courseLevel { get; set; }
+      public String courseLevel { get; set; }
 
       [Required]
       [DisplayName("Description")]

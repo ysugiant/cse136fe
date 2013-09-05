@@ -15,33 +15,30 @@ namespace web136.Models.Major
       SLMajor.ISLMajor client = new SLMajor.SLMajorClient();
 
       string[] errors = new string[0];
-      SLSchedule.GetScheduleListRequest request = new SLSchedule.GetScheduleListRequest(year, quarter, errors);
-      SLSchedule.GetScheduleListResponse response = client.GetScheduleList(request);
-      SLSchedule.Schedule[] schedulesLoaded = response.GetScheduleListResult;
+      SLMajor.GetMajorListRequest request = new SLMajor.GetMajorListRequest(errors);
+      SLMajor.GetMajorListResponse response = client.GetMajorList(request);
+      SLMajor.Major[] majorsLoaded = response.GetMajorListResult;
 
-      if (schedulesLoaded != null)
+      if (majorsLoaded != null)
       {
-        foreach (SLSchedule.Schedule s in schedulesLoaded)
+        foreach (SLMajor.Major s in majorsLoaded)
         {
-          PLSchedule schedule = DTO_to_PL(s);
-          scheduleList.Add(schedule);
+          PLMajor major = DTO_to_PL(s);
+          majorList.Add(major);
         }
       }
-      return scheduleList;
+      return majorList;
     }
 
-    private static PLSchedule DTO_to_PL(SLSchedule.Schedule s)
+    private static PLMajor DTO_to_PL(SLMajor.Major m)
     {
-      PLSchedule mySchedule = new PLSchedule();
+        PLMajor myMajor = new PLMajor();
 
-      mySchedule.schedule_id = s.id;
-      mySchedule.year = s.year;
-      mySchedule.quarter = s.quarter;
-      mySchedule.session = s.session;
-      mySchedule.course_title = s.course.title;
-      mySchedule.course_description = s.course.description;
+        myMajor.major_id = m.id;
+        myMajor.major_name = m.majorName;
+        myMajor.dept_id = m.deptId;
 
-      return mySchedule;
+      return myMajor;
     }
   }
 }
