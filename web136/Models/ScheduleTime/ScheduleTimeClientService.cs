@@ -8,20 +8,23 @@ namespace web136.Models.ScheduleTime
 {
   public static class ScheduleTimeClientService
   {
-    public static List<string> GetScheduleTimeList()
+    public static List<PLScheduleTime> GetScheduleTimeList()
     {
-      List<string> scheduleTimeList = new List<string>();
+      List<PLScheduleTime> scheduleTimeList = new List<PLScheduleTime>();
 
       SLScheduleTime.ISLScheduleTime client = new SLScheduleTime.SLScheduleTimeClient();
 
       string[] errors = new string[0];
       SLScheduleTime.GetScheduleTimeListRequest request = new SLScheduleTime.GetScheduleTimeListRequest(errors);
       SLScheduleTime.GetScheduleTimeListResponse response = client.GetScheduleTimeList(request);
-      string[] scheduleTimesLoaded = response.GetScheduleTimeListResult;
+      Dictionary<string, string> scheduleTimesLoaded = response.GetScheduleTimeListResult;
 
-      foreach (string s in scheduleTimesLoaded)
+      foreach (KeyValuePair<string, string> s in scheduleTimesLoaded)
       {
-        scheduleTimeList.Add(s);
+        PLScheduleTime st = new PLScheduleTime();
+        st.ID = s.Key;
+        st.scheduleTime = s.Value;
+        scheduleTimeList.Add(st);
       }
 
       return scheduleTimeList;

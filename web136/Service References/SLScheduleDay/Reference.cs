@@ -59,7 +59,7 @@ namespace web136.SLScheduleDay {
     public partial class GetScheduleDayListResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string[] GetScheduleDayListResult;
+        public System.Collections.Generic.Dictionary<string, string> GetScheduleDayListResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
@@ -67,7 +67,7 @@ namespace web136.SLScheduleDay {
         public GetScheduleDayListResponse() {
         }
         
-        public GetScheduleDayListResponse(string[] GetScheduleDayListResult, string[] errors) {
+        public GetScheduleDayListResponse(System.Collections.Generic.Dictionary<string, string> GetScheduleDayListResult, string[] errors) {
             this.GetScheduleDayListResult = GetScheduleDayListResult;
             this.errors = errors;
         }
@@ -177,7 +177,7 @@ namespace web136.SLScheduleDay {
             return base.Channel.GetScheduleDayList(request);
         }
         
-        public string[] GetScheduleDayList(ref string[] errors) {
+        public System.Collections.Generic.Dictionary<string, string> GetScheduleDayList(ref string[] errors) {
             web136.SLScheduleDay.GetScheduleDayListRequest inValue = new web136.SLScheduleDay.GetScheduleDayListRequest();
             inValue.errors = errors;
             web136.SLScheduleDay.GetScheduleDayListResponse retVal = ((web136.SLScheduleDay.ISLScheduleDay)(this)).GetScheduleDayList(inValue);

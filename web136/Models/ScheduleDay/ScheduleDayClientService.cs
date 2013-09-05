@@ -8,20 +8,23 @@ namespace web136.Models.ScheduleDay
 {
   public static class ScheduleDayClientService
   {
-    public static List<string> GetScheduleDayList()
+    public static List<PLScheduleDay> GetScheduleDayList()
     {
-      List<string> scheduleDayList = new List<string>();
+      List<PLScheduleDay> scheduleDayList = new List<PLScheduleDay>();
 
       SLScheduleDay.ISLScheduleDay client = new SLScheduleDay.SLScheduleDayClient();
 
       string[] errors = new string[0];
       SLScheduleDay.GetScheduleDayListRequest request = new SLScheduleDay.GetScheduleDayListRequest(errors);
       SLScheduleDay.GetScheduleDayListResponse response = client.GetScheduleDayList(request);
-      string[] scheduleDaysLoaded = response.GetScheduleDayListResult;
+      Dictionary<string, string> scheduleDaysLoaded = response.GetScheduleDayListResult;
 
-      foreach (string s in scheduleDaysLoaded)
+      foreach (KeyValuePair<string, string> s in scheduleDaysLoaded)
       {
-        scheduleDayList.Add(s);
+          PLScheduleDay st = new PLScheduleDay();
+          st.ID = s.Key;
+          st.scheduleDay = s.Value;
+          scheduleDayList.Add(st);
       }
 
       return scheduleDayList;

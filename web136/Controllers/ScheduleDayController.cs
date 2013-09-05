@@ -11,13 +11,13 @@ namespace web136.Controllers
   {
     public string GetNumScheduleDayTotal()
     {
-      List<string> list = ScheduleDayClientService.GetScheduleDayList();
+      List<PLScheduleDay> list = ScheduleDayClientService.GetScheduleDayList();
       return list.Count.ToString();
     }
 
     public JsonResult GetSampleScheduleDay(int idx)
     {
-      List<string> list = ScheduleDayClientService.GetScheduleDayList();
+      List<PLScheduleDay> list = ScheduleDayClientService.GetScheduleDayList();
 
       return this.Json(list[idx], JsonRequestBehavior.AllowGet);
     }
@@ -25,7 +25,7 @@ namespace web136.Controllers
 
     public ActionResult Index()
     {
-      List<string> list = ScheduleDayClientService.GetScheduleDayList();
+      List<PLScheduleDay> list = ScheduleDayClientService.GetScheduleDayList();
       ViewBag.breadCrumbData = "Schedule Day List";
 
       return View("List", list);
