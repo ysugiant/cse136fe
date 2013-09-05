@@ -132,6 +132,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ScheduleDayController.cs" />
+    <Compile Include="Controllers\ScheduleTimeController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -155,8 +157,8 @@
     <Compile Include="Models\ScheduleDay\ScheduleDayClientService.cs" />
     <Compile Include="Models\ScheduleTime\PLScheduleTime.cs" />
     <Compile Include="Models\ScheduleTime\ScheduleTimeClientService.cs" />
-    <Compile Include="Models\Schedule\PLScheduledCourse.cs" />
-    <Compile Include="Models\Schedule\ScheduleClientService.cs" />
+    <Compile Include="Models\ScheduledCourse\PLScheduledCourse.cs" />
+    <Compile Include="Models\ScheduledCourse\ScheduleClientService.cs" />
     <Compile Include="Models\Student\PLStudent.cs" />
     <Compile Include="Models\Student\StudentClientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

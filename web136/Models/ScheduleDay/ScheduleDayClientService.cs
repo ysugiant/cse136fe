@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using web136.Models.Schedule;
 
-namespace web136.Models.ScheduleTime
+namespace web136.Models.ScheduleDay
 {
   public static class ScheduleDayClientService
   {

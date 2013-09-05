@@ -16,7 +16,5 @@ namespace web136.Models.ScheduleDay
     [Required]
     [DisplayName("Schedule Day")]
     public string scheduleDay { get; set; }
-
-    SLSchedule.ScheduledCourse
   }
 }
