@@ -10,16 +10,7 @@ namespace web136.Models.Course
     public static List<PLCourse> GetCourseList()
     {
       List<PLCourse> courseList = new List<PLCourse>();
-        /*
-         * 
-         *       SLStudent.ISLStudent client = new SLStudent.SLStudentClient();
 
-      string[] errors = new string[0];
-      SLStudent.GetStudentListRequest request = new SLStudent.GetStudentListRequest(errors);
-      SLStudent.GetStudentListResponse response = client.GetStudentList(request);
-      SLStudent.Student[] studentsLoaded = response.GetStudentListResult;
-
-         */
 
       SLCourse.ISLCourse client = new SLCourse.SLCourseClient();
 
@@ -74,6 +65,72 @@ namespace web136.Models.Course
 
         return Course;
     }
-      
+
+
+    public static PLCourse GetCourseDetail(string courseTitle)
+    {
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+
+        string[] errors = new string[0];
+        SLCourse.GetCourseRequest request = new SLCourse.GetCourseRequest(courseTitle, errors);
+        SLCourse.GetCourseResponse response = SLCourse.GetCourse(request);
+        SLCourse.Course newCourse = response.GetCourseResult;
+        // this is the data transfer object code...
+        return DTO_to_PL(newCourse);
+    }
+
+    public static void CreateCourse(PLCourse c)
+    {
+        SLCourse.Course newCourse = DTO_to_SL(c);
+
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+        string[] errors = new string[0];
+        SLCourse.InsertCourseRequest request = new SLCourse.InsertCourseRequest(newCourse, errors);
+        SLCourse.InsertCourse(request);
+    }
+
+    public static void UpdateCourse(PLCourse s)
+    {
+        SLCourse.Course newCourse = DTO_to_SL(s);
+
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+        string[] errors = new string[0];
+        SLCourse.UpdateCourseRequest request = new SLCourse.UpdateCourseRequest(newCourse, errors);
+        SLCourse.UpdateCourse(request);
+    }
+
+    public static bool DeleteCourse(string courseTitle)
+    {
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+        string[] errors = new string[0];
+        SLCourse.DeleteCourseRequest request = new SLCourse.DeleteCourseRequest(courseTitle, errors);
+        SLCourse.DeleteCourseResponse response = SLCourse.DeleteCourse(request);
+        if (response.errors.Length > 0)
+            return false;
+
+        return true;
+    }
+
+    public static void InsertPrerequisite(int course_id,int pre_id )
+    {
+
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+        string[] errors = new string[0];
+        SLCourse.InsertPrerequisiteRequest request = new SLCourse.InsertPrerequisiteRequest(course_id, pre_id, errors);
+        SLCourse.InsertPrerequisite(request);    
+    }
+    public static bool DeletePrerequisite(int course_id, int pre_id)
+    {
+
+        SLCourse.ISLCourse SLCourse = new SLCourse.SLCourseClient();
+        string[] errors = new string[0];
+        SLCourse.DeletePrerequisiteRequest request = new SLCourse.DeletePrerequisiteRequest(course_id, pre_id, errors);
+        SLCourse.DeletePrerequisiteResponse response = SLCourse.DeletePrerequisite(request);
+        if (response.errors.Length > 0)
+            return false;
+
+        return true;
+    }
+
   }
 }
