@@ -65,7 +65,7 @@ namespace web136.Controllers
         try
         {
             PLCourse Course = new PLCourse();
-            Course.id = Convert.ToInt32( collection["id"]);
+           // we don't need course id Course.id = Convert.ToInt32( collection["id"]);
             Course.title = collection["title"];
             Course.description = collection["description"];
             Course.courseLevel = collection["courseLevel"];
@@ -117,10 +117,42 @@ namespace web136.Controllers
         }
     }
 
+    [HttpPost]
+    public ActionResult CreatePrerequisite( FormCollection collection)
+    {
+        try
+        {
+            int course_id = Convert.ToInt32(collection["course_id"]);
+            int pre_id = Convert.ToInt32(collection["pre_id"]);
+            CourseClientService.InsertPrerequisite(course_id,pre_id);
+            return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
+    }
+
+    [HttpPost]
+    public ActionResult DeletePrerequisite(FormCollection collection)
+    {
+        try
+        {
+            int course_id = Convert.ToInt32(collection["course_id"]);
+            int pre_id = Convert.ToInt32(collection["pre_id"]);
+            CourseClientService.DeletePrerequisite(course_id, pre_id);
+            return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
+    }
+
     //
     // GET: /Course/Delete/5
 
-    public ActionResult Delete(string id)
+    public ActionResult DeleteCourse(string id)
     {
         try
         {
