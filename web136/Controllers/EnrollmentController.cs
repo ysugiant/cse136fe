@@ -21,16 +21,22 @@ namespace web136.Controllers
 
       return this.Json(list[idx], JsonRequestBehavior.AllowGet);
     }
-
+*/
 
     public ActionResult Index()
     {
-      List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
-      ViewBag.breadCrumbData = "Enrollment List";
+        string id = "A00000001";
+        /*if (Session["id"] != null)
+            id = Session["id"].ToString();
+        else
+            return View("Error");*/
+        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(id);
+        ViewBag.breadCrumbData = "Enrollment List";
 
-      return View("List", list);
+        return View("List", list);
     }
-*/
+
+
       public double GetTotalGPA(string student_id)
       {
           List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(student_id);
@@ -98,6 +104,7 @@ namespace web136.Controllers
     {
       try
       {
+        //get student id from cache
         EnrollmentClientService.CreateEnrollment(collection["studentID"], Convert.ToInt32(collection["scheduleID"]));
         return RedirectToAction("Index");
       }

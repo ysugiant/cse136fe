@@ -683,15 +683,21 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Views\ScheduleDay\List.cshtml" />
-    <Content Include="Views\ScheduleDay\Edit.cshtml" />
     <Content Include="Views\ScheduleDay\Create.cshtml" />
     <Content Include="Views\ScheduleDay\Error.cshtml" />
     <Content Include="Views\ScheduleDay\DisplayTemplates\PLScheduleDay.cshtml" />
     <Content Include="Views\ScheduleTime\Create.cshtml" />
     <Content Include="Views\ScheduleTime\DisplayTemplates\PLScheduleTime.cshtml" />
-    <Content Include="Views\ScheduleTime\Edit.cshtml" />
     <Content Include="Views\ScheduleTime\Error.cshtml" />
     <Content Include="Views\ScheduleTime\List.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\DisplayTemplates\PLEnrollment.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Error.cshtml" />
+    <Content Include="Views\Department\List.cshtml" />
+    <Content Include="Views\Enrollment\DisplayTemplates\PLDepartment.cshtml" />
+    <Content Include="Views\Enrollment\Error.cshtml" />
+    <Content Include="Views\Enrollment\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -730,7 +736,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49266</DevelopmentServerPort>
+          <DevelopmentServerPort>49576</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:49214/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

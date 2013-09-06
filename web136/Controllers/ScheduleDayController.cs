@@ -52,8 +52,7 @@ namespace web136.Controllers
     {
       try
       {
-        PLScheduleDay scheduleDay = new PLScheduleDay();
-        scheduleDay.scheduleDay = collection["scheduleDay"];
+        ScheduleDayClientService.CreateScheduleDay(collection["scheduleDay"].ToString());
         return RedirectToAction("Index");
       }
       catch (Exception e)

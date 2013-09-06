@@ -1,7 +1,7 @@
-﻿@model web136.Models.ScheduleTime.PLScheduleTime
+﻿@model web136.Models.Department.PLDepartment
 
 @{
-    ViewBag.Title = "Edit Schedule Time";
+    ViewBag.Title = "Edit Department";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,11 +14,18 @@
             <legend>Fields</legend>
             
             <div class="editor-label">
-                @Html.LabelFor(model => model.scheduleTime) 
+                @Html.LabelFor(model => model.deptName) 
             </div>
             <div class="editor-field">
-            @Html.TextBoxFor(model => model.scheduleTime)
-        </div>
+                @Html.TextBoxFor(model => model.deptName)
+            </div>
+
+            <div class="editor-label">
+            @Html.LabelFor(model => model.chair_id)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.chair_id)
+            </div>
             
             <p>
                 <input type="submit" value="Save" />

@@ -52,8 +52,7 @@ namespace web136.Controllers
     {
       try
       {
-        PLScheduleTime scheduleTime = new PLScheduleTime();
-        scheduleTime.scheduleTime = collection["scheduleTime"];
+        ScheduleTimeClientService.CreateScheduleTime(collection["scheduleTime"].ToString());
         return RedirectToAction("Index");
       }
       catch (Exception e)

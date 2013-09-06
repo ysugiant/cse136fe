@@ -55,6 +55,7 @@ namespace web136.Controllers
         PLDepartment department = new PLDepartment();
         department.chair_id = Convert.ToInt32(collection["chairID"]);
         department.deptName = collection["deptName"];
+        DepartmentClientService.CreateDepartment(department);
         return RedirectToAction("Index");
       }
       catch (Exception e)
@@ -62,6 +63,41 @@ namespace web136.Controllers
         Console.Write(e.ToString());
         return View();
       }
+    }
+
+    //
+    // GET: /Student/Create
+    public ActionResult Edit(string id)
+    {
+        if (HttpContext != null)
+        {
+            UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
+            ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Department") + "'>Department List</a>";
+            ViewBag.breadCrumbData += " > Edit";
+        }
+
+        PLDepartment department = DepartmentClientService.GetDepartmentDetail(id);
+        return View("Edit", department);
+    }
+
+    //
+    // POST: /Student/Edit/
+    [HttpPost]
+    public ActionResult Edit(string id, FormCollection collection)
+    {
+        try
+        {
+            PLDepartment department = new PLDepartment();
+            department.ID = Convert.ToInt32(collection["ID"]);
+            department.deptName = collection["deptName"];
+            department.chair_id = Convert.ToInt32(collection["chair_id"]);
+            DepartmentClientService.UpdateDepartment(department);
+            return RedirectToAction("Index");
+        }
+        catch
+        {
+            return View();
+        }
     }
 
     //

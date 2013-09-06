@@ -1,0 +1,62 @@
+﻿@model IEnumerable<web136.Models.Enrollment.PLEnrollment>
+
+@{
+    ViewBag.Title = "Transcript";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Schedule Time List</h2>
+
+Total GPA = <div id="totalGPA"></div>
+<table id="tableTranscriptList">
+    <tr>
+
+        <th>Course Title</th>
+        <th>Course Description</th>
+        <th>Unit</th>
+        <th>Grade</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td>
+                @item.scheduledCourse.course.title
+            </td>
+            <td>
+                @item.scheduledCourse.course.description
+            </td>
+            <td>
+                @item.scheduledCourse.course.units
+            </td>
+            <td>
+                @item.grade
+            </td>
+        </tr>
+    
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+
+    });
+
+    function GetTotalGPA() {
+        $.getJSON(
+            '/Enrollment/GetTotalGPA',
+            function (data) {
+                $("#totalGPA").html(data);
+            });
+
+        return false; // this prevents the page from going to "nowhere"
+    }
+
+</script>

@@ -93,5 +93,6 @@ C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\bin\System.Web.Mvc.xml
 C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\bin\System.Web.WebPages.xml
 C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\bin\System.Web.WebPages.Deployment.xml
 C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\bin\System.Web.WebPages.Razor.xml
+C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.csprojResolveAssemblyReference.cache
 C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.dll
 C:\Users\Yos Sugianto\Documents\GitHub\cse136fe\web136\obj\Debug\web136.pdb
