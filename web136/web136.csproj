@@ -164,6 +164,8 @@
     <Compile Include="Models\ScheduleTime\ScheduleTimeClientService.cs" />
     <Compile Include="Models\ScheduledCourse\PLScheduledCourse.cs" />
     <Compile Include="Models\ScheduledCourse\ScheduleClientService.cs" />
+    <Compile Include="Models\Staff\PLStaff.cs" />
+    <Compile Include="Models\Staff\StaffClientService.cs" />
     <Compile Include="Models\Student\PLStudent.cs" />
     <Compile Include="Models\Student\StudentClientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -553,7 +555,7 @@
     <None Include="Service References\SLStaff\POCO.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLStaff\service.wsdl" />
+    <None Include="Service References\SLStaff\service.wsdl" />
     <None Include="Service References\SLStaff\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -592,12 +594,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\SLStaff\configuration91.svcinfo" />
-    <Content Include="Service References\SLStaff\configuration.svcinfo" />
-    <Content Include="Service References\SLStaff\Reference.svcmap">
+    <None Include="Service References\SLStaff\configuration91.svcinfo" />
+    <None Include="Service References\SLStaff\configuration.svcinfo" />
+    <None Include="Service References\SLStaff\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
