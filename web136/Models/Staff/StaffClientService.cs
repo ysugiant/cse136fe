@@ -116,7 +116,7 @@ namespace web136.Models.Staff
         /// </summary>
         /// <param name="Staff"></param>
         /// <returns> a presentation layer Department object</returns>
-        private static PLDepartment DTO_to_PL(SLDepartment.Department dept)
+        private static PLDepartment DTO_to_PL(SLStaff.Department dept)
         {
             PLDepartment plDept = new PLDepartment();
             plDept.ID = dept.id;
