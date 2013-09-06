@@ -34,7 +34,7 @@
   <xs:element name="DeleteScheduleDay">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
         <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="errors" nillable="true" type="q6:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>

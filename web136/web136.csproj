@@ -142,7 +142,6 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -688,6 +687,11 @@
     <Content Include="Views\ScheduleDay\Create.cshtml" />
     <Content Include="Views\ScheduleDay\Error.cshtml" />
     <Content Include="Views\ScheduleDay\DisplayTemplates\PLScheduleDay.cshtml" />
+    <Content Include="Views\ScheduleTime\Create.cshtml" />
+    <Content Include="Views\ScheduleTime\DisplayTemplates\PLScheduleTime.cshtml" />
+    <Content Include="Views\ScheduleTime\Edit.cshtml" />
+    <Content Include="Views\ScheduleTime\Error.cshtml" />
+    <Content Include="Views\ScheduleTime\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

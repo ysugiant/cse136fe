@@ -82,7 +82,7 @@ namespace web136.Models.Department
     {
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
       string[] errors = new string[0];
-      SLDepartment.DeleteDepartmentRequest request = new SLDepartment.DeleteDepartmentRequest(id, errors);
+      SLDepartment.DeleteDepartmentRequest request = new SLDepartment.DeleteDepartmentRequest(Convert.ToInt32(id), errors);
       SLDepartment.DeleteDepartmentResponse response = SLDepartment.DeleteDepartment(request);
       if (response.errors.Length > 0)
         return false;

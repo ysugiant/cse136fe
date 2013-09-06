@@ -248,7 +248,7 @@ namespace web136.SLDepartment {
     public partial class DeleteDepartmentRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string name;
+        public int id;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
@@ -256,8 +256,8 @@ namespace web136.SLDepartment {
         public DeleteDepartmentRequest() {
         }
         
-        public DeleteDepartmentRequest(string name, string[] errors) {
-            this.name = name;
+        public DeleteDepartmentRequest(int id, string[] errors) {
+            this.id = id;
             this.errors = errors;
         }
     }
@@ -398,9 +398,9 @@ namespace web136.SLDepartment {
             return base.Channel.DeleteDepartment(request);
         }
         
-        public void DeleteDepartment(string name, ref string[] errors) {
+        public void DeleteDepartment(int id, ref string[] errors) {
             web136.SLDepartment.DeleteDepartmentRequest inValue = new web136.SLDepartment.DeleteDepartmentRequest();
-            inValue.name = name;
+            inValue.id = id;
             inValue.errors = errors;
             web136.SLDepartment.DeleteDepartmentResponse retVal = ((web136.SLDepartment.ISLDepartment)(this)).DeleteDepartment(inValue);
             errors = retVal.errors;

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<web136.Models.ScheduleTime.PLScheduleTime>
+
+@{
+    ViewBag.Title = "List Schedule Time";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Schedule Time List</h2>
+
+<table id="tableScheduleTimeList">
+    <tr>
+        <th>Delete</th>
+        <th>Schedule Time
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td>
+                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+            <td>
+                @item.scheduleTime
+            </td>
+        </tr>
+    
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

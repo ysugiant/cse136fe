@@ -10,24 +10,24 @@ namespace web136.Models.ScheduleTime
   {
     public static List<PLScheduleTime> GetScheduleTimeList()
     {
-      List<PLScheduleTime> scheduleTimeList = new List<PLScheduleTime>();
+      List<PLScheduleTime> ScheduleTimeList = new List<PLScheduleTime>();
 
       SLScheduleTime.ISLScheduleTime client = new SLScheduleTime.SLScheduleTimeClient();
 
       string[] errors = new string[0];
       SLScheduleTime.GetScheduleTimeListRequest request = new SLScheduleTime.GetScheduleTimeListRequest(errors);
       SLScheduleTime.GetScheduleTimeListResponse response = client.GetScheduleTimeList(request);
-      Dictionary<string, string> scheduleTimesLoaded = response.GetScheduleTimeListResult;
+      Dictionary<string, string> ScheduleTimesLoaded = response.GetScheduleTimeListResult;
 
-      foreach (KeyValuePair<string, string> s in scheduleTimesLoaded)
+      foreach (KeyValuePair<string, string> s in ScheduleTimesLoaded)
       {
         PLScheduleTime st = new PLScheduleTime();
         st.ID = s.Key;
         st.scheduleTime = s.Value;
-        scheduleTimeList.Add(st);
+        ScheduleTimeList.Add(st);
       }
 
-      return scheduleTimeList;
+      return ScheduleTimeList;
     }
 
     /// <summary>
@@ -46,11 +46,11 @@ namespace web136.Models.ScheduleTime
     /// call service layer's delete student method
     /// </summary>
     /// <param name="id"></param>
-    public static bool DeleteScheduleTime(string Time)
+    public static bool DeleteScheduleTime(string id)
     {
       SLScheduleTime.ISLScheduleTime SLScheduleTime = new SLScheduleTime.SLScheduleTimeClient();
       string[] errors = new string[0];
-      SLScheduleTime.DeleteScheduleTimeRequest request = new SLScheduleTime.DeleteScheduleTimeRequest(Time, errors);
+      SLScheduleTime.DeleteScheduleTimeRequest request = new SLScheduleTime.DeleteScheduleTimeRequest(Convert.ToInt32(id), errors);
       SLScheduleTime.DeleteScheduleTimeResponse response = SLScheduleTime.DeleteScheduleTime(request);
       if (response.errors.Length > 0)
         return false;

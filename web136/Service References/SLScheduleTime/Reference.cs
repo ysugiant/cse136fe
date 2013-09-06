@@ -115,7 +115,7 @@ namespace web136.SLScheduleTime {
     public partial class DeleteScheduleTimeRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string id;
+        public int id;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
@@ -123,7 +123,7 @@ namespace web136.SLScheduleTime {
         public DeleteScheduleTimeRequest() {
         }
         
-        public DeleteScheduleTimeRequest(string id, string[] errors) {
+        public DeleteScheduleTimeRequest(int id, string[] errors) {
             this.id = id;
             this.errors = errors;
         }
@@ -211,7 +211,7 @@ namespace web136.SLScheduleTime {
             return base.Channel.DeleteScheduleTime(request);
         }
         
-        public void DeleteScheduleTime(string id, ref string[] errors) {
+        public void DeleteScheduleTime(int id, ref string[] errors) {
             web136.SLScheduleTime.DeleteScheduleTimeRequest inValue = new web136.SLScheduleTime.DeleteScheduleTimeRequest();
             inValue.id = id;
             inValue.errors = errors;

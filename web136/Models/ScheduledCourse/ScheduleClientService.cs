@@ -114,15 +114,26 @@ namespace web136.Models.Schedule
             mySchedule.quarter = s.quarter;
             mySchedule.session = s.session;
 
-            //mySchedule.course = PLCourse.DTO_to_PL(s.course);
-            /*
-            mySchedule.course.id = s.course.id;
-            mySchedule.course.prerequisiteList = s.course.prerequisite_list;
-            mySchedule.course.description = s.course.description;
-            mySchedule.course.courseLevel = s.course.level;
-            mySchedule.course.title = s.course.title;
-            mySchedule.course.units = s.course.units;
-            */
+            PLCourse myCourse = new PLCourse();
+            myCourse.id = s.course.id;
+
+            List<PLCourse> temp = new List<PLCourse>();
+            foreach (SLSchedule.Course course in s.course.prerequisite_list)
+            {
+                PLCourse tmp = new PLCourse();
+                tmp.id = course.id;
+                tmp.courseLevel = course.level.ToString();
+                tmp.description = course.description;
+                tmp.title = course.title;
+                tmp.units = course.units;
+                temp.Add(tmp);
+            }
+
+            myCourse.prerequisiteList = temp;
+            myCourse.description = s.course.description;
+            myCourse.courseLevel = s.course.level.ToString();
+            myCourse.title = s.course.title;
+            myCourse.units = s.course.units;
 
             mySchedule.dayID = s.dayID;
             mySchedule.day = s.day;
@@ -146,7 +157,28 @@ namespace web136.Models.Schedule
         {
             SLSchedule.ScheduledCourse SLSchedule = new SLSchedule.ScheduledCourse();
             SLSchedule.id = s.schedule_id;
-            //SLSchedule.course = DTO_to_SL(s.course);
+
+            SLCourse.Course myCourse = new SLCourse.Course();
+            myCourse.id = s.course.id;
+
+            List<SLCourse.Course> temp = new List<SLCourse.Course>();
+            foreach (PLCourse course in s.course.prerequisiteList)
+            {
+                SLCourse.Course tmp = new SLCourse.Course();
+                tmp.id = course.id;
+                tmp.level = course.courseLevel;
+                tmp.description = course.description;
+                tmp.title = course.title;
+                tmp.units = course.units;
+                temp.Add(tmp);
+            }
+
+            myCourse.prerequisite_list = temp.ToArray();
+            myCourse.description = s.course.description;
+            myCourse.level = s.course.courseLevel;
+            myCourse.title = s.course.title;
+            myCourse.units = s.course.units;
+
             SLSchedule.year = s.year;
             SLSchedule.quarter = s.quarter;
             SLSchedule.session = s.session;
@@ -161,6 +193,7 @@ namespace web136.Models.Schedule
             return SLSchedule;
         }
 
+        /*
         /// <summary>
         /// this is data transfer object for Course.
         /// Converting from presentation layer Course object to business layer Course object
@@ -170,15 +203,27 @@ namespace web136.Models.Schedule
         private static SLCourse.Course DTO_to_SL(PLCourse s)
         {
             SLCourse.Course myCourse = new SLCourse.Course();
-
             myCourse.id = s.id;
-            //myCourse.prerequisiteList = s.prerequisite_list;
+
+            List<SLCourse.Course> temp = new List<SLCourse.Course>();
+            foreach (PLCourse course in s.prerequisiteList)
+            {
+                SLCourse.Course tmp = new SLCourse.Course();
+                tmp.id = course.id;
+                tmp.level = course.courseLevel;
+                tmp.description = course.description;
+                tmp.title = course.title;
+                tmp.units = course.units;
+                temp.Add(tmp);
+            }
+
+            myCourse.prerequisite_list = temp.ToArray();
             myCourse.description = s.description;
-            //myCourse.courseLevel = s.level;
+            myCourse.level = s.courseLevel;
             myCourse.title = s.title;
             myCourse.units = s.units;
 
             return myCourse;
-        }
+        }*/
     }
 }

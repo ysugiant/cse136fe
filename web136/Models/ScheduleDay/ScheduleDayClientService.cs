@@ -46,11 +46,11 @@ namespace web136.Models.ScheduleDay
     /// call service layer's delete student method
     /// </summary>
     /// <param name="id"></param>
-    public static bool DeleteScheduleDay(string day)
+    public static bool DeleteScheduleDay(string id)
     {
       SLScheduleDay.ISLScheduleDay SLScheduleDay = new SLScheduleDay.SLScheduleDayClient();
       string[] errors = new string[0];
-      SLScheduleDay.DeleteScheduleDayRequest request = new SLScheduleDay.DeleteScheduleDayRequest(day, errors);
+      SLScheduleDay.DeleteScheduleDayRequest request = new SLScheduleDay.DeleteScheduleDayRequest(Convert.ToInt32(id), errors);
       SLScheduleDay.DeleteScheduleDayResponse response = SLScheduleDay.DeleteScheduleDay(request);
       if (response.errors.Length > 0)
         return false;
