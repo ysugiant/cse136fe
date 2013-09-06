@@ -142,6 +142,7 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -681,10 +682,10 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Views\ScheduleDay\List.cshtml" />
-    <Content Include="Views\ScheduleDay\Index.cshtml" />
     <Content Include="Views\ScheduleDay\Edit.cshtml" />
     <Content Include="Views\ScheduleDay\Create.cshtml" />
     <Content Include="Views\ScheduleDay\Error.cshtml" />
+    <Content Include="Views\ScheduleDay\DisplayTemplates\PLScheduleDay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
