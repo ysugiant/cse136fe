@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Schedule Time List</h2>
+<h2>Transcript</h2>
 
 Total GPA = <div id="totalGPA"></div>
 <table id="tableTranscriptList">
     <tr>
-
+        <th>Quarter</th>
+        <th>Year</th>
         <th>Course Title</th>
         <th>Course Description</th>
         <th>Unit</th>
@@ -21,6 +22,12 @@ Total GPA = <div id="totalGPA"></div>
     {
     
         <tr>
+            <td>
+                @item.scheduledCourse.quarter
+            </td>
+            <td>
+                @item.scheduledCourse.year
+            </td>
             <td>
                 @item.scheduledCourse.course.title
             </td>
@@ -38,10 +45,6 @@ Total GPA = <div id="totalGPA"></div>
     }
 
 </table>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
 <script type="text/javascript">
     $(document).ready(function () {

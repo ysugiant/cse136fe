@@ -43,7 +43,7 @@ namespace web136.Controllers
           }
           else if (Session["role"].Equals("staff"))
           {
-            return RedirectToAction("Index", "Student");
+            return RedirectToAction("Index", "StaffHome");
           }
           else if (Session["role"].Equals("student"))
           {

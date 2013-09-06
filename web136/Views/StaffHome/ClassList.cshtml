@@ -1,0 +1,47 @@
+﻿@model IEnumerable<web136.Models.Schedule.PLScheduledCourse>
+@{
+    ViewBag.Title = "Class List";
+}
+
+<h2>Class List</h2>
+<table id="tableClassList">
+    <tr>
+        <th>Session</th>
+        <th>Year</th>
+        <th>Quarter</th>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td>
+                @item.session
+            </td>
+            <td>
+                @item.year
+            </td>
+            <td>
+                @item.quarter
+            </td>
+            <td>
+                @item.day
+            </td>
+            <td>
+                @item.time
+            </td>
+            <td>
+                @item.course.title
+            </td>
+            <td>
+                @item.course.description
+            </td>
+        </tr>
+    
+    }
+
+</table>

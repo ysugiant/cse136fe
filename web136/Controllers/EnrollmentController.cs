@@ -26,16 +26,16 @@ namespace web136.Controllers
     public ActionResult Index()
     {
         string id = "A00000001";
-        /*if (Session["id"] != null)
-            id = Session["id"].ToString();
-        else
-            return View("Error");*/
-        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(id);
+        return Transcript(id);
+    }
+
+    public ActionResult Transcript(string stID)
+    {
+        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(stID);
         ViewBag.breadCrumbData = "Enrollment List";
 
         return View("List", list);
     }
-
 
       public double GetTotalGPA(string student_id)
       {

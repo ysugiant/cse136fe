@@ -141,6 +141,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\StaffHomeController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -695,9 +696,11 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Error.cshtml" />
     <Content Include="Views\Department\List.cshtml" />
-    <Content Include="Views\Enrollment\DisplayTemplates\PLDepartment.cshtml" />
+    <Content Include="Views\Enrollment\DisplayTemplates\PLEnrollment.cshtml" />
     <Content Include="Views\Enrollment\Error.cshtml" />
     <Content Include="Views\Enrollment\List.cshtml" />
+    <Content Include="Views\StaffHome\Index.cshtml" />
+    <Content Include="Views\StaffHome\ClassList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

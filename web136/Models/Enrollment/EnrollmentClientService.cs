@@ -18,11 +18,13 @@ namespace web136.Models.Enrollment
       SLEnrollment.GetEnrollmentListRequest request = new SLEnrollment.GetEnrollmentListRequest(student_id, errors);
       SLEnrollment.GetEnrollmentListResponse response = client.GetEnrollmentList(request);
       SLEnrollment.Enrollment[] enrollmentsLoaded = response.GetEnrollmentListResult;
-
-      foreach (SLEnrollment.Enrollment s in enrollmentsLoaded)
+      if (enrollmentsLoaded != null)
       {
-        PLEnrollment enrollment = DTO_to_PL(s);
-        enrollmentList.Add(enrollment);
+          foreach (SLEnrollment.Enrollment s in enrollmentsLoaded)
+          {
+              PLEnrollment enrollment = DTO_to_PL(s);
+              enrollmentList.Add(enrollment);
+          }
       }
 
       return enrollmentList;
@@ -93,8 +95,11 @@ namespace web136.Models.Enrollment
       mySchedule.year = s.year;
       mySchedule.quarter = s.quarter;
       mySchedule.session = s.session;
+
+      mySchedule.course = new Course.PLCourse();
       mySchedule.course.title = s.course.title;
       mySchedule.course.description = s.course.description;
+      mySchedule.course.units = s.course.units;
 
       return mySchedule;
     }
