@@ -163,6 +163,8 @@
     <Compile Include="Models\ScheduleTime\ScheduleTimeClientService.cs" />
     <Compile Include="Models\ScheduledCourse\PLScheduledCourse.cs" />
     <Compile Include="Models\ScheduledCourse\ScheduleClientService.cs" />
+    <Compile Include="Models\Staff\PLStaff.cs" />
+    <Compile Include="Models\Staff\StaffClientService.cs" />
     <Compile Include="Models\Student\PLStudent.cs" />
     <Compile Include="Models\Student\StudentClientService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

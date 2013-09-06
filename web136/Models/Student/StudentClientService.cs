@@ -90,38 +90,12 @@ namespace web136.Models.Student
             return true;
         }
 
-        /*
-      /// <summary>
-      /// call service layer's delete student method
-      /// </summary>
-      /// <param name="id"></param>
-
-      public static void Enroll(string student_id, int schedule_id)
-      {
-        SLStudent.ISLStudent SLStudent = new SLStudent.SLStudentClient();
-        string[] errors = new string[0];
-        SLStudent.EnrollScheduleRequest request = new SLStudent.EnrollScheduleRequest(student_id, schedule_id, errors);
-        SLStudent.EnrollSchedule(request);
-      }
-
-      /// <summary>
-      /// call service layer's drop student method
-      /// </summary>
-      /// <param name="id"></param>
-      public static void Drop(string student_id, int schedule_id)
-      {
-        SLStudent.ISLStudent SLStudent = new SLStudent.SLStudentClient();
-        string[] errors = new string[0];
-        SLStudent.DropEnrolledScheduleRequest request = new SLStudent.DropEnrolledScheduleRequest(student_id, schedule_id, errors);
-        SLStudent.DropEnrolledSchedule(request);
-      }*/
-
         /// <summary>
         /// This is the data transfer object for student.
         /// Converting business layer student object to presentation layer student object
         /// </summary>
         /// <param name="student"></param>
-        /// <returns></returns>
+        /// <returns> a presentation layer student object</returns>
         private static PLStudent DTO_to_PL(SLStudent.Student student)
         {
             PLStudent PLStudent = new PLStudent();
@@ -156,42 +130,38 @@ namespace web136.Models.Student
         /// <returns></returns>
         private static SLStudent.Student DTO_to_SL(PLStudent student)
         {
-            SLStudent.Student SLStudent = new SLStudent.Student();
-            SLStudent.id = student.ID;
-            SLStudent.ssn = student.SSN;
-            SLStudent.first_name = student.FirstName;
-            SLStudent.last_name = student.LastName;
-            SLStudent.email = student.EmailAddress;
-            SLStudent.password = student.Password;
-            SLStudent.shoe_size = student.ShoeSize;
-            SLStudent.weight = student.Weight;
-            SLStudent.level = student.StudentLevel;
-            SLStudent.status = student.Status;
-            SLStudent.major = student.Major;
-            SLStudent.enrolled = null;
-
-            /*if (student.enrolled != null)
+            SLStudent.Student slStudent = new SLStudent.Student();
+            slStudent.id = student.ID;
+            slStudent.ssn = student.SSN;
+            slStudent.first_name = student.FirstName;
+            slStudent.last_name = student.LastName;
+            slStudent.email = student.EmailAddress;
+            slStudent.password = student.Password;
+            slStudent.shoe_size = student.ShoeSize;
+            slStudent.weight = student.Weight;
+            slStudent.level = student.StudentLevel;
+            slStudent.status = student.Status;
+            slStudent.major = student.Major;
+            slStudent.enrolled = null;
+            //slStudent.enrolled = //DTO_to_SL(student.Enrollments);
+            /*if (student.Enrollments != null)
             {
-                PLStudent.Enrollments = new List<PLScheduledCourse>();
-                foreach (SLStudent.ScheduledCourse course in student.enrolled)
-                {
-                    PLScheduledCourse s = DTO_to_PL(course); // method overloading
-                    PLStudent.Enrollments.Add(s);
-                }
-            }*/
-            
-            if (student.Enrollments != null)
-            {
-                SLStudent.enrolled = new List<SLSchedule.ScheduledCourse>();
+                slStudent.enrolled = new List<SLSchedule.ScheduledCourse>();// SLSchedule.ScheduledCourse;
                 string sCourse= null;
                 for (int i = 0; i < student.Enrollments.Count(); i++)
                 {
                     sCourse = student.Enrollments[i];
-                    SLStudent.enrolled[i] = student.Enrollments[i];
+                    slStudent.enrolled[i] = student.Enrollments[i];
                 }
-            }
+            }*/
 
-            return SLStudent;
+            return slStudent;
+        }
+
+        private static List<Schedule.PLScheduledCourse> DTO_to_SL(List<PLScheduledCourse> schedule)
+        {
+
+            return null;
         }
 
         private static PLScheduledCourse DTO_to_PL(SLStudent.ScheduledCourse s)
