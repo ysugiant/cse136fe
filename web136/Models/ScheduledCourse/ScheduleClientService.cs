@@ -118,18 +118,23 @@ namespace web136.Models.Schedule
             myCourse.id = s.course.id;
 
             List<PLCourse> temp = new List<PLCourse>();
-            foreach (SLSchedule.Course course in s.course.prerequisite_list)
+            //check it it is null or not first.
+            if (s.course.prerequisite_list != null)
             {
-                PLCourse tmp = new PLCourse();
-                tmp.id = course.id;
-                tmp.courseLevel = course.level.ToString();
-                tmp.description = course.description;
-                tmp.title = course.title;
-                tmp.units = course.units;
-                temp.Add(tmp);
+                foreach (SLSchedule.Course course in s.course.prerequisite_list)
+                {
+                    PLCourse tmp = new PLCourse();
+                    tmp.id = course.id;
+                    tmp.courseLevel = course.level.ToString();
+                    tmp.description = course.description;
+                    tmp.title = course.title;
+                    tmp.units = course.units;
+                    temp.Add(tmp);
+                }
+                myCourse.prerequisiteList = temp;
             }
 
-            myCourse.prerequisiteList = temp;
+          
             myCourse.description = s.course.description;
             myCourse.courseLevel = s.course.level.ToString();
             myCourse.title = s.course.title;
@@ -142,7 +147,7 @@ namespace web136.Models.Schedule
             mySchedule.instructorID = s.instr_id;
             mySchedule.firstName = s.instructor_fName;
             mySchedule.lastName = s.instructor_lName;
-
+            mySchedule.course = myCourse;
 
             return mySchedule;
         }

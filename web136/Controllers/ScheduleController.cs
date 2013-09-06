@@ -14,9 +14,10 @@ namespace web136.Controllers
     // GET: /Schedule/
     public ActionResult Index(string yearFilter, string quarterFilter)
     {
+        
       if (yearFilter == null)
-        yearFilter = "";
-
+        yearFilter = "1950";
+        
       if (quarterFilter == null)
         quarterFilter = "";
 
@@ -24,8 +25,9 @@ namespace web136.Controllers
 
       PLStudent student = StudentClientService.GetStudentDetail(student_id);
       ViewBag.student = student;
+      int tmpYear = Convert.ToInt32(yearFilter);
 
-      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
+      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(tmpYear, quarterFilter);
 
       int year = DateTime.Now.Year;
       int previousYear = year - 1;

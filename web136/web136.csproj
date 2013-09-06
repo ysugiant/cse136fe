@@ -408,7 +408,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\SLEnrollment\service.wsdl" />
+    <None Include="Service References\SLEnrollment\service.wsdl" />
     <None Include="Service References\SLEnrollment\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -436,13 +436,13 @@
     <None Include="Service References\SLMajor\POCO.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLEnrollment\configuration91.svcinfo" />
-    <Content Include="Service References\SLEnrollment\configuration.svcinfo" />
-    <Content Include="Service References\SLEnrollment\Reference.svcmap">
+    <None Include="Service References\SLEnrollment\configuration91.svcinfo" />
+    <None Include="Service References\SLEnrollment\configuration.svcinfo" />
+    <None Include="Service References\SLEnrollment\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Service References\SLMajor\service.wsdl" />
+    </None>
+    <None Include="Service References\SLMajor\service.wsdl" />
     <None Include="Service References\SLMajor\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -512,12 +512,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="Service References\SLMajor\configuration91.svcinfo" />
-    <Content Include="Service References\SLMajor\configuration.svcinfo" />
-    <Content Include="Service References\SLMajor\Reference.svcmap">
+    <None Include="Service References\SLMajor\configuration91.svcinfo" />
+    <None Include="Service References\SLMajor\configuration.svcinfo" />
+    <None Include="Service References\SLMajor\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Service References\SLScheduleDay\configuration91.svcinfo" />
     <None Include="Service References\SLScheduleDay\configuration.svcinfo" />
     <None Include="Service References\SLScheduleDay\Reference.svcmap">
@@ -652,7 +652,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLStudent\SLStudent.wsdl" />
-    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\ScheduledCourse\Index.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Shared\StudentEnrollment.cshtml" />
     <Content Include="Views\Student\DisplayTemplates\PLStudent.cshtml" />

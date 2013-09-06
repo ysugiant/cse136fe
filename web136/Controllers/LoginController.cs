@@ -47,7 +47,7 @@ namespace web136.Controllers
           }
           else if (Session["role"].Equals("student"))
           {
-            return RedirectToAction("Index", "Schedule");
+              return RedirectToAction("Index", "ScheduledCourse");
           }
         }
       }

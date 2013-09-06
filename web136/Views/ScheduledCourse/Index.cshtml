@@ -1,4 +1,4 @@
-﻿@model List<web136.Models.Schedule.PLSchedule>
+﻿@model List<web136.Models.Schedule.PLScheduledCourse>
 
 @{
     ViewBag.Title = "Index";
@@ -8,9 +8,9 @@
 <h2>Index</h2>
 @Html.ActionLink("Refresh", "Index")
 <br />
-@Html.Partial("StudentEnrollment", (web136.Models.Student.PLStudent)ViewBag.student)
+<!-- Html.Partial("StudentEnrollment", (web136.Models.Student.PLStudent)ViewBag.student) -->
 
-@using (Html.BeginForm("Index", "Schedule"))
+@using (Html.BeginForm("Index", "ScheduledCourse"))
 {
     <h2>Schedule</h2>
     <table id="tableScheduleList">
@@ -45,10 +45,10 @@
                     @item.session
                 </td>
                 <td>
-                    @item.course_title
+                    @item.course.title
                 </td>
                 <td>
-                    @item.course_description
+                    @item.course.description
                 </td>
             </tr>
         }

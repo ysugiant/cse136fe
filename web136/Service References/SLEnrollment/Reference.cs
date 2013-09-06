@@ -311,7 +311,7 @@ namespace web136.SLEnrollment {
         private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private web136.SLEnrollment.CourseLevel levelField;
+        private string levelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private web136.SLEnrollment.Course[] prerequisite_listField;
@@ -359,12 +359,12 @@ namespace web136.SLEnrollment {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public web136.SLEnrollment.CourseLevel level {
+        public string level {
             get {
                 return this.levelField;
             }
             set {
-                if ((this.levelField.Equals(value) != true)) {
+                if ((object.ReferenceEquals(this.levelField, value) != true)) {
                     this.levelField = value;
                     this.RaisePropertyChanged("level");
                 }
@@ -418,20 +418,6 @@ namespace web136.SLEnrollment {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CourseLevel", Namespace="http://schemas.datacontract.org/2004/07/POCO")]
-    public enum CourseLevel : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        lower = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        upper = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        grad = 2,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
