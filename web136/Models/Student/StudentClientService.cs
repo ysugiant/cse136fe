@@ -146,7 +146,7 @@ namespace web136.Models.Student
             //slStudent.enrolled = //DTO_to_SL(student.Enrollments);
             /*if (student.Enrollments != null)
             {
-                slStudent.enrolled = new List<SLSchedule.ScheduledCourse>();// SLSchedule.ScheduledCourse;
+                slStudent.enrolled = new List<SLStudent.ScheduledCourse>();// SLSchedule.ScheduledCourse;
                 string sCourse= null;
                 for (int i = 0; i < student.Enrollments.Count(); i++)
                 {

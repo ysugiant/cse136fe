@@ -39,7 +39,7 @@ namespace web136.Models.Staff
             SLStaff.ISLStaff slStaff = new SLStaff.SLStaffClient();
             string[] errors = new string[0];
             SLStaff.InsertStaffRequest request = new SLStaff.InsertStaffRequest(newStaff, errors);
-            SLStaff.InsertStaff(request);
+            slStaff.InsertStaff(request);
         }
 
         /// <summary>
@@ -61,13 +61,13 @@ namespace web136.Models.Staff
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static PLStaff GetStaffDetail(string id)
+        public static PLStaff GetStaffDetail(int id)
         {
-            SLStaff.ISLStaff SLStaff = new SLStaff.SLStaffClient();
+            SLStaff.ISLStaff slStaff = new SLStaff.SLStaffClient();
 
             string[] errors = new string[0];
             SLStaff.GetStaffRequest request = new SLStaff.GetStaffRequest(id, errors);
-            SLStaff.GetStaffResponse response = SLStaff.GetStaff(request);
+            SLStaff.GetStaffResponse response = slStaff.GetStaff(request);
             SLStaff.Staff newStaff = response.GetStaffResult;
             // this is the data transfer object code...
             return DTO_to_PL(newStaff);
@@ -77,12 +77,12 @@ namespace web136.Models.Staff
         /// call service layer's delete Staff method
         /// </summary>
         /// <param name="id"></param>
-        public static bool DeleteStaff(string id)
+        public static bool DeleteStaff(int id)
         {
-            SLStaff.ISLStaff SLStaff = new SLStaff.SLStaffClient();
+            SLStaff.ISLStaff slStaff = new SLStaff.SLStaffClient();
             string[] errors = new string[0];
             SLStaff.DeleteStaffRequest request = new SLStaff.DeleteStaffRequest(id, errors);
-            SLStaff.DeleteStaffResponse response = SLStaff.DeleteStaff(request);
+            SLStaff.DeleteStaffResponse response = slStaff.DeleteStaff(request);
             if (response.errors.Length > 0)
                 return false;
 
@@ -103,6 +103,7 @@ namespace web136.Models.Staff
             PLStaff.LastName = staffMember.last_name;
             PLStaff.EmailAddress = staffMember.email;
             PLStaff.Password = staffMember.password;
+            //staffMember.dept = DTO_to_SL(staffMember.dept);
             PLStaff.Department = DTO_to_PL(staffMember.dept);
             PLStaff.isInstructor = staffMember.isInstructor;
 
@@ -151,9 +152,9 @@ namespace web136.Models.Staff
         /// </summary>
         /// <param name="staffMember"></param>
         /// <returns>instance of SLDepartment</returns>
-        private static SLDepartment.Department DTO_to_SL(PLDepartment dept)
+        private static SLStaff.Department DTO_to_SL(PLDepartment dept)
         {
-            SLDepartment.Department slDept = new SLDepartment.Department();
+            SLStaff.Department slDept = new SLStaff.Department();
             slDept.id = dept.ID;
             slDept.deptName = dept.deptName;
             slDept.chairID = dept.chair_id;
