@@ -470,7 +470,7 @@
     <None Include="Service References\SLScheduleDay\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Service References\SLScheduleDay\service.wsdl" />
+    <None Include="Service References\SLScheduleDay\service.wsdl" />
     <None Include="Service References\SLScheduleDay\service.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -518,12 +518,12 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
-    <Content Include="Service References\SLScheduleDay\configuration91.svcinfo" />
-    <Content Include="Service References\SLScheduleDay\configuration.svcinfo" />
-    <Content Include="Service References\SLScheduleDay\Reference.svcmap">
+    <None Include="Service References\SLScheduleDay\configuration91.svcinfo" />
+    <None Include="Service References\SLScheduleDay\configuration.svcinfo" />
+    <None Include="Service References\SLScheduleDay\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Service References\SLScheduleTime\configuration91.svcinfo" />
     <None Include="Service References\SLScheduleTime\configuration.svcinfo" />
     <None Include="Service References\SLScheduleTime\Reference.svcmap">
@@ -684,6 +684,9 @@
     </Content>
     <Content Include="Views\ScheduleDay\List.cshtml" />
     <Content Include="Views\ScheduleDay\Index.cshtml" />
+    <Content Include="Views\ScheduleDay\Edit.cshtml" />
+    <Content Include="Views\ScheduleDay\Create.cshtml" />
+    <Content Include="Views\ScheduleDay\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,13 +11,13 @@ namespace web136.Controllers
   {
     public string GetNumScheduleTimeTotal()
     {
-      List<string> list = ScheduleTimeClientService.GetScheduleTimeList();
+      List<PLScheduleTime> list = ScheduleTimeClientService.GetScheduleTimeList();
       return list.Count.ToString();
     }
 
     public JsonResult GetSampleScheduleTime(int idx)
     {
-      List<string> list = ScheduleTimeClientService.GetScheduleTimeList();
+      List<PLScheduleTime> list = ScheduleTimeClientService.GetScheduleTimeList();
 
       return this.Json(list[idx], JsonRequestBehavior.AllowGet);
     }
@@ -25,7 +25,7 @@ namespace web136.Controllers
 
     public ActionResult Index()
     {
-      List<string> list = ScheduleTimeClientService.GetScheduleTimeList();
+        List<PLScheduleTime> list = ScheduleTimeClientService.GetScheduleTimeList();
       ViewBag.breadCrumbData = "Schedule Time List";
 
       return View("List", list);

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Student List</h2>
+<h2>Schedule Day List</h2>
 
 <table id="tableScheduleDayList">
     <tr>
@@ -19,7 +19,7 @@
     
         <tr>
             <td style="width:50px;">
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                Html.ActionLink("Delete", "Delete", new { id = item.ID }) 
             </td>
             <td>
                 @item.scheduleDay

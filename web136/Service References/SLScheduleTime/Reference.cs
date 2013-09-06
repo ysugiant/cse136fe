@@ -59,7 +59,7 @@ namespace web136.SLScheduleTime {
     public partial class GetScheduleTimeListResponse {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string[] GetScheduleTimeListResult;
+        public System.Collections.Generic.Dictionary<string, string> GetScheduleTimeListResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
@@ -67,7 +67,7 @@ namespace web136.SLScheduleTime {
         public GetScheduleTimeListResponse() {
         }
         
-        public GetScheduleTimeListResponse(string[] GetScheduleTimeListResult, string[] errors) {
+        public GetScheduleTimeListResponse(System.Collections.Generic.Dictionary<string, string> GetScheduleTimeListResult, string[] errors) {
             this.GetScheduleTimeListResult = GetScheduleTimeListResult;
             this.errors = errors;
         }
@@ -177,7 +177,7 @@ namespace web136.SLScheduleTime {
             return base.Channel.GetScheduleTimeList(request);
         }
         
-        public string[] GetScheduleTimeList(ref string[] errors) {
+        public System.Collections.Generic.Dictionary<string, string> GetScheduleTimeList(ref string[] errors) {
             web136.SLScheduleTime.GetScheduleTimeListRequest inValue = new web136.SLScheduleTime.GetScheduleTimeListRequest();
             inValue.errors = errors;
             web136.SLScheduleTime.GetScheduleTimeListResponse retVal = ((web136.SLScheduleTime.ISLScheduleTime)(this)).GetScheduleTimeList(inValue);
