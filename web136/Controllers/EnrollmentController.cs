@@ -32,7 +32,7 @@ namespace web136.Controllers
 
     public ActionResult Transcript(string stID)
     {
-        if (Session["rule"] != null && Session["rule"].Equals("student"))
+        if (Session["role"] != null && Session["role"].Equals("student"))
         {
             List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
             ViewBag.breadCrumbData = "Transcript List";
@@ -45,7 +45,7 @@ namespace web136.Controllers
 
     public ActionResult StudentSchedule(string stID)
     {
-        if (Session["rule"] != null && Session["rule"].Equals("student"))
+        if (Session["role"] != null && Session["role"].Equals("student"))
         {
             List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
             ViewBag.breadCrumbData = "Schedule List";
@@ -58,7 +58,7 @@ namespace web136.Controllers
 
     public ActionResult InstructorSchedule(string instID)
     {
-        if (Session["rule"] != null && Session["rule"].Equals("instructor"))
+        if (Session["role"] != null && Session["role"].Equals("instructor"))
         {
             List<PLEnrollment> list = EnrollmentClientService.GetInstructorEnrollmentList(instID);
             ViewBag.breadCrumbData = "Schedule List";
