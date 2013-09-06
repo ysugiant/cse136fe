@@ -5,16 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Enrollment List</h2>
+<h2>Transcript</h2>
 
-<table id="tableTranscriptList">
+<table id="tableScheduleList">
     <tr>
         <th>Quarter</th>
         <th>Year</th>
         <th>Course Title</th>
         <th>Course Description</th>
         <th>Unit</th>
-        <th>Grade</th>
+        <th>Instructor</th>
     </tr>
 
     @foreach (var item in Model)
@@ -37,7 +37,7 @@
                 @item.scheduledCourse.course.units
             </td>
             <td>
-                @item.grade
+                @item.scheduledCourse.firstName + @item.scheduledCourse.lastName
             </td>
         </tr>
     

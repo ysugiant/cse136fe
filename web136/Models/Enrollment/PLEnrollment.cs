@@ -11,6 +11,10 @@ namespace web136.Models.Enrollment
   public class PLEnrollment
   {
       [Required]
+      [DisplayName("Student ID")]
+      public string studentID { get; set; }
+
+      [Required]
       [DisplayName("Schedule Course")]
       public PLScheduledCourse scheduledCourse { get; set; }
 

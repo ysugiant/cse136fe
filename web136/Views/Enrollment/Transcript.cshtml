@@ -5,8 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Enrollment List</h2>
+<h2>Transcript</h2>
 
+Total GPA = <div id="totalGPA"></div>
 <table id="tableTranscriptList">
     <tr>
         <th>Quarter</th>
@@ -44,3 +45,21 @@
     }
 
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+
+    });
+
+    function GetTotalGPA() {
+        $.getJSON(
+            '/Enrollment/GetTotalGPA',
+            function (data) {
+                $("#totalGPA").html(data);
+            });
+
+        return false; // this prevents the page from going to "nowhere"
+    }
+
+</script>

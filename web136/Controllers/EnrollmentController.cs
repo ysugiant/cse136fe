@@ -25,21 +25,53 @@ namespace web136.Controllers
 
     public ActionResult Index()
     {
-        string id = "A00000001";
-        return Transcript(id);
+        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
+        ViewBag.breadCrumbData = "Enrollment List";
+        return View("List", list);
     }
 
     public ActionResult Transcript(string stID)
     {
-        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(stID);
-        ViewBag.breadCrumbData = "Enrollment List";
+        if (Session["rule"] != null && Session["rule"].Equals("student"))
+        {
+            List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
+            ViewBag.breadCrumbData = "Transcript List";
 
-        return View("List", list);
+            return View("Transcript", list);
+        }
+        else
+            return View("Error");
+    }
+
+    public ActionResult StudentSchedule(string stID)
+    {
+        if (Session["rule"] != null && Session["rule"].Equals("student"))
+        {
+            List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
+            ViewBag.breadCrumbData = "Schedule List";
+
+            return View("StudentSchedule", list);
+        }
+        else
+            return View("Error");
+    }
+
+    public ActionResult InstructorSchedule(string instID)
+    {
+        if (Session["rule"] != null && Session["rule"].Equals("instructor"))
+        {
+            List<PLEnrollment> list = EnrollmentClientService.GetInstructorEnrollmentList(instID);
+            ViewBag.breadCrumbData = "Schedule List";
+
+            return View("InstructorSchedule", list);
+        }
+        else
+            return View("Error");
     }
 
       public double GetTotalGPA(string student_id)
       {
-          List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList(student_id);
+          List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(student_id);
 
           double totalGrade = 0;
           int totalUnit = 0;

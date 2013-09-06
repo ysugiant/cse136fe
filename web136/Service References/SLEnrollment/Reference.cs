@@ -28,6 +28,9 @@ namespace web136.SLEnrollment {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string gradeField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string student_idField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -60,6 +63,19 @@ namespace web136.SLEnrollment {
                 if ((object.ReferenceEquals(this.gradeField, value) != true)) {
                     this.gradeField = value;
                     this.RaisePropertyChanged("grade");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string student_id {
+            get {
+                return this.student_idField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.student_idField, value) != true)) {
+                    this.student_idField = value;
+                    this.RaisePropertyChanged("student_id");
                 }
             }
         }
@@ -459,16 +475,12 @@ namespace web136.SLEnrollment {
     public partial class GetEnrollmentListRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string student_id;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
         
         public GetEnrollmentListRequest() {
         }
         
-        public GetEnrollmentListRequest(string student_id, string[] errors) {
-            this.student_id = student_id;
+        public GetEnrollmentListRequest(string[] errors) {
             this.errors = errors;
         }
     }
@@ -649,9 +661,8 @@ namespace web136.SLEnrollment {
             return base.Channel.GetEnrollmentList(request);
         }
         
-        public web136.SLEnrollment.Enrollment[] GetEnrollmentList(string student_id, ref string[] errors) {
+        public web136.SLEnrollment.Enrollment[] GetEnrollmentList(ref string[] errors) {
             web136.SLEnrollment.GetEnrollmentListRequest inValue = new web136.SLEnrollment.GetEnrollmentListRequest();
-            inValue.student_id = student_id;
             inValue.errors = errors;
             web136.SLEnrollment.GetEnrollmentListResponse retVal = ((web136.SLEnrollment.ISLEnrollment)(this)).GetEnrollmentList(inValue);
             errors = retVal.errors;

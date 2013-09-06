@@ -10,6 +10,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ScheduledCourse" nillable="true" type="tns:ScheduledCourse" />
       <xs:element minOccurs="0" name="grade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="student_id" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Enrollment" nillable="true" type="tns:Enrollment" />

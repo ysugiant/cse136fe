@@ -8,14 +8,14 @@ namespace web136.Models.Enrollment
 {
   public static class EnrollmentClientService
   {
-    public static List<PLEnrollment> GetEnrollmentList(string student_id)
+    public static List<PLEnrollment> GetEnrollmentList()
     {
       List<PLEnrollment> enrollmentList = new List<PLEnrollment>();
 
       SLEnrollment.ISLEnrollment client = new SLEnrollment.SLEnrollmentClient();
 
       string[] errors = new string[0];
-      SLEnrollment.GetEnrollmentListRequest request = new SLEnrollment.GetEnrollmentListRequest(student_id, errors);
+      SLEnrollment.GetEnrollmentListRequest request = new SLEnrollment.GetEnrollmentListRequest(errors);
       SLEnrollment.GetEnrollmentListResponse response = client.GetEnrollmentList(request);
       SLEnrollment.Enrollment[] enrollmentsLoaded = response.GetEnrollmentListResult;
       if (enrollmentsLoaded != null)
@@ -28,6 +28,36 @@ namespace web136.Models.Enrollment
       }
 
       return enrollmentList;
+    }
+
+    public static List<PLEnrollment> GetStudentEnrollmentList(string stID)
+    {
+        List<PLEnrollment> enrollmentList = GetEnrollmentList();
+
+        List<PLEnrollment> res = new List<PLEnrollment>();
+
+        foreach (PLEnrollment tmp in enrollmentList)
+        {
+            if (tmp.studentID.Equals(stID))
+                res.Add(tmp);
+        }
+
+        return res;
+    }
+
+    public static List<PLEnrollment> GetInstructorEnrollmentList(string instID)
+    {
+        List<PLEnrollment> enrollmentList = GetEnrollmentList();
+
+        List<PLEnrollment> res = new List<PLEnrollment>();
+
+        foreach (PLEnrollment tmp in enrollmentList)
+        {
+            if (tmp.scheduledCourse.instructorID.Equals(instID))
+                res.Add(tmp);
+        }
+
+        return res;
     }
 
     /// <summary>
@@ -82,6 +112,7 @@ namespace web136.Models.Enrollment
       PLEnrollment PLEnrollment = new PLEnrollment();
       PLEnrollment.scheduledCourse = DTO_to_PL(enrollment.ScheduledCourse);
       PLEnrollment.grade = enrollment.grade;
+      PLEnrollment.studentID = enrollment.student_id;
         
       return PLEnrollment;
     }

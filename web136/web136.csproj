@@ -701,6 +701,9 @@
     <Content Include="Views\Enrollment\List.cshtml" />
     <Content Include="Views\StaffHome\Index.cshtml" />
     <Content Include="Views\StaffHome\ClassList.cshtml" />
+    <Content Include="Views\Enrollment\StudentSchedule.cshtml" />
+    <Content Include="Views\Enrollment\InstructorSchedule.cshtml" />
+    <Content Include="Views\Enrollment\Transcript.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
