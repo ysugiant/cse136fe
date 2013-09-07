@@ -33,6 +33,7 @@ namespace web136.Models.Department
     /// <param name="s"></param>
     public static void CreateDepartment(PLDepartment s)
     {
+      s.chair_id = 0;
       SLDepartment.Department newDepartment = DTO_to_SL(s);
 
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
@@ -65,7 +66,7 @@ namespace web136.Models.Department
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
 
       string[] errors = new string[0];
-      SLDepartment.GetDepartmentDetailRequest request = new SLDepartment.GetDepartmentDetailRequest(id, errors);
+      SLDepartment.GetDepartmentDetailRequest request = new SLDepartment.GetDepartmentDetailRequest(Convert.ToInt32(id), errors);
       SLDepartment.GetDepartmentDetailResponse response = SLDepartment.GetDepartmentDetail(request);
       SLDepartment.Department newDepartment = response.GetDepartmentDetailResult;
       //System.Diagnostics.Debug.WriteLine("newDepartment value: " + newDepartment.ToString());

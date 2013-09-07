@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using web136.Models.Department;
+using web136.Models.Staff;
 
 namespace web136.Controllers
 {
@@ -77,6 +78,21 @@ namespace web136.Controllers
         }
 
         PLDepartment department = DepartmentClientService.GetDepartmentDetail(id);
+        
+        List<PLStaff> st = StaffClientService.GetStaffList();
+        List<string> res = new List<string>();
+        List<string> idlist = new List<string>();
+        foreach(PLStaff tmp in st)
+        {
+            if (tmp.Department.ID == Convert.ToInt32(id))
+            {
+                res.Add(tmp.FirstName + " "  + tmp.LastName);
+                idlist.Add(tmp.ID.ToString());
+            }
+        }
+        ViewBag.listStaff = res.ToArray();
+        ViewBag.chairID = idlist.ToArray();
+        
         return View("Edit", department);
     }
 

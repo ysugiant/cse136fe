@@ -6,8 +6,7 @@
 }
 
 <h2>Transcript</h2>
-
-Total GPA = <div id="totalGPA"></div>
+Total GPA = @ViewBag.GPA
 <table id="tableTranscriptList">
     <tr>
         <th>Quarter</th>
@@ -45,21 +44,3 @@ Total GPA = <div id="totalGPA"></div>
     }
 
 </table>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajaxSettings.cache = false;
-
-    });
-
-    function GetTotalGPA() {
-        $.getJSON(
-            '/Enrollment/GetTotalGPA',
-            function (data) {
-                $("#totalGPA").html(data);
-            });
-
-        return false; // this prevents the page from going to "nowhere"
-    }
-
-</script>

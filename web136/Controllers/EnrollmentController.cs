@@ -36,7 +36,7 @@ namespace web136.Controllers
         {
             List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
             ViewBag.breadCrumbData = "Transcript List";
-
+            ViewBag.GPA = GetTotalGPA(list);
             return View("Transcript", list);
         }
         else
@@ -69,10 +69,8 @@ namespace web136.Controllers
             return View("Error");
     }
 
-      public double GetTotalGPA(string student_id)
+      public double GetTotalGPA( List<PLEnrollment> list)
       {
-          List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(student_id);
-
           double totalGrade = 0;
           int totalUnit = 0;
 

@@ -24,8 +24,12 @@
             @Html.LabelFor(model => model.chair_id)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.chair_id)
+                @Html.DropDownList("list", new SelectList(ViewBag.listStaff, "chairID", "chairName", ViewBag.chairID), new { @class = "dropdown-toggle" })
             </div>
+            @foreach(var temp in ViewBag.listStaff)
+            {
+                @temp
+            }
             
             <p>
                 <input type="submit" value="Save" />

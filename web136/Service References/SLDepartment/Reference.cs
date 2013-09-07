@@ -136,7 +136,7 @@ namespace web136.SLDepartment {
     public partial class GetDepartmentDetailRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string name;
+        public int id;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=1)]
         public string[] errors;
@@ -144,8 +144,8 @@ namespace web136.SLDepartment {
         public GetDepartmentDetailRequest() {
         }
         
-        public GetDepartmentDetailRequest(string name, string[] errors) {
-            this.name = name;
+        public GetDepartmentDetailRequest(int id, string[] errors) {
+            this.id = id;
             this.errors = errors;
         }
     }
@@ -346,9 +346,9 @@ namespace web136.SLDepartment {
             return base.Channel.GetDepartmentDetail(request);
         }
         
-        public web136.SLDepartment.Department GetDepartmentDetail(string name, ref string[] errors) {
+        public web136.SLDepartment.Department GetDepartmentDetail(int id, ref string[] errors) {
             web136.SLDepartment.GetDepartmentDetailRequest inValue = new web136.SLDepartment.GetDepartmentDetailRequest();
-            inValue.name = name;
+            inValue.id = id;
             inValue.errors = errors;
             web136.SLDepartment.GetDepartmentDetailResponse retVal = ((web136.SLDepartment.ISLDepartment)(this)).GetDepartmentDetail(inValue);
             errors = retVal.errors;
