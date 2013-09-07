@@ -718,6 +718,11 @@
     <Content Include="Views\Major\Edit.cshtml" />
     <Content Include="Views\Major\Get.cshtml" />
     <Content Include="Views\Major\List.cshtml" />
+    <Content Include="Views\ScheduledCourse\Create.cshtml" />
+    <Content Include="Views\ScheduledCourse\Edit.cshtml" />
+    <Content Include="Views\ScheduledCourse\Get.cshtml" />
+    <Content Include="Views\ScheduledCourse\Delete.cshtml" />
+    <Content Include="Views\ScheduledCourse\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

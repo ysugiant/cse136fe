@@ -1,0 +1,200 @@
+﻿@model web136.Models.Schedule.PLScheduledCourse
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Schedule</h2>
+<div id="EditSchedule"></div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true) 
+
+    <fieldset>
+        <legend>Fields</legend>
+
+        <div class="editor-label">
+                @Html.LabelFor(model => model.schedule_id) 
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.schedule_id) 
+                @Html.ValidationMessageFor(model => model.schedule_id) 
+            </div>
+            <p>
+                <input id="buttonEditSchedule" type="button" value="Get Schedule" />
+            </p>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.year)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.year)
+            @Html.ValidationMessageFor(model => model.year)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.quarter)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.quarter)
+            @Html.ValidationMessageFor(model => model.quarter)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.session)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.session)
+            @Html.ValidationMessageFor(model => model.session)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.course.id)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.course.id)
+            @Html.ValidationMessageFor(model => model.course.id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.course.title)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.course.title)
+            @Html.ValidationMessageFor(model => model.course.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.course.description)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.course.description)
+            @Html.ValidationMessageFor(model => model.course.description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.course.courseLevel)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.course.courseLevel)
+            @Html.ValidationMessageFor(model => model.course.courseLevel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.course.units)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.course.units)
+            @Html.ValidationMessageFor(model => model.course.units)
+        </div>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.dayID)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.dayID)
+            @Html.ValidationMessageFor(model => model.dayID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.timeID)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.timeID)
+            @Html.ValidationMessageFor(model => model.timeID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.day)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.day)
+            @Html.ValidationMessageFor(model => model.day)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.time)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.time)
+            @Html.ValidationMessageFor(model => model.time)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.instructorID)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.instructorID)
+            @Html.ValidationMessageFor(model => model.instructorID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.firstName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.firstName)
+            @Html.ValidationMessageFor(model => model.firstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lastName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.lastName)
+            @Html.ValidationMessageFor(model => model.lastName)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+
+
+<script type="text/javascript">
+    $(document).ready
+        (function () {
+            $.ajaxSettings.cache = false;
+            $(buttonEditSched).click
+            (
+                function () {
+                    var id = document.getElementById('major_id').value;
+                    $.getJSON
+                    (
+                        '/ScheduledCourse/GetSampleSchedule/',
+                        { idx: id },
+                        function (data) {
+                            // using jquery library to prepopulate the sample data...
+                            //$("#schedule_id").attr("value", "");
+                            $("#year").attr("value", "2013");
+                            $("#quarter").attr("value", "Spring");
+                            $("#session").attr("value", "A34");
+                            $("#id").attr("value", "36");
+                            $("#description").attr("value", "Programming Languages: Principles and Paradigms");
+                            $("#title").attr("value", "CSE 130");
+                            $("#courseLevel").attr("value", "upper");
+                            $("#units").attr("value", "4");
+                            $("#timeID").attr("value", "11");
+                            $("#dayID").attr("value", "4");
+                            $("#time").attr("value", "1pm-2:30pm");
+                            $("#day").attr("value", "Mon/Wed/Fri");
+                            $("#instructorID").attr("value", "68");
+                            $("#firstName").attr("value", "Ranjit");
+                            $("#lastName").attr("value", "Jhala");
+                            $(EditSchedule).html(info);
+                        }
+                    )
+                }
+            );
+        }
+    );
+
+</script>
