@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using web136.Models.Enrollment;
+using web136.Models.Student;
+using web136.Models.Schedule;
 
 namespace web136.Controllers
 {
@@ -113,29 +115,14 @@ namespace web136.Controllers
           }
           return totalGrade / totalUnit;
       }
-    //
-    // GET: /Enrollment/Create
-    public ActionResult Create()
-    {
-      if (HttpContext != null)
-      {
-        UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
-        ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Enrollment") + "'>Enrollment List</a>";
-        ViewBag.breadCrumbData += " > Create";
-      }
-      PLEnrollment enrollment = new PLEnrollment();
-      return View("Create", enrollment);
-    }
 
     //
-    // POST: /Enrollment/Create
-    [HttpPost]
-    public ActionResult Create(FormCollection collection)
+    public ActionResult Create(string student_id, string schedule_id)
     {
       try
       {
         //get student id from cache
-        EnrollmentClientService.CreateEnrollment(collection["studentID"], Convert.ToInt32(collection["scheduleID"]));
+        EnrollmentClientService.CreateEnrollment(student_id, Convert.ToInt32(schedule_id));
         return RedirectToAction("Index");
       }
       catch (Exception e)
@@ -201,5 +188,70 @@ namespace web136.Controllers
       return View("Error");
     }
 
+
+       // GET: /Schedule/
+    public ActionResult Register(string yearFilter, string quarterFilter)
+    {
+        
+      if (yearFilter == null)
+        yearFilter = "1950";
+        
+      if (quarterFilter == null)
+        quarterFilter = "";
+
+      if (Session["id"] == null)
+          return RedirectToAction("Index", "Login");
+      string student_id = Session["id"].ToString();
+
+      ViewBag.student_id = student_id;
+      int tmpYear = Convert.ToInt32(yearFilter);
+
+      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(tmpYear, quarterFilter);
+
+      int year = DateTime.Now.Year;
+      int previousYear = year - 1;
+      int nextYear = year + 1;
+
+      // only display the current year, previous year, and next year as selections
+      List<SelectListItem> YearList = new List<SelectListItem>();
+      YearList.Add(new SelectListItem { Text = "All Years", Value = "" });
+      YearList.Add(new SelectListItem { Text = previousYear.ToString(), Value = previousYear.ToString() });
+      YearList.Add(new SelectListItem { Text = year.ToString(), Value = year.ToString() });
+      YearList.Add(new SelectListItem { Text = nextYear.ToString(), Value = nextYear.ToString() });
+
+      // these usually comes from the database... 
+      List<SelectListItem> QuarterList = new List<SelectListItem>();
+      QuarterList.Add(new SelectListItem { Text = "All Quarters", Value = "" });
+      QuarterList.Add(new SelectListItem { Text = "Fall", Value = "Fall" });
+      QuarterList.Add(new SelectListItem { Text = "Winter", Value = "Winter" });
+      QuarterList.Add(new SelectListItem { Text = "Spring", Value = "Spring" });
+      QuarterList.Add(new SelectListItem { Text = "Summer 1", Value = "Summer 1" });
+      QuarterList.Add(new SelectListItem { Text = "Summer 2", Value = "Summer 2" });
+
+      ViewBag.YearList = YearList;
+      ViewBag.QuarterList = QuarterList;
+
+      return View("Index", scheduleList);
+    }
+
+    public ActionResult Filter(string yearFilter, string quarterFilter)
+    {
+      if (yearFilter == null)
+        yearFilter = "";
+
+      if (quarterFilter == null)
+        quarterFilter = "";
+
+      string student_id = Session["id"].ToString();
+
+      PLStudent student = StudentClientService.GetStudentDetail(student_id);
+      ViewBag.student = student;
+
+      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
+
+      return Json(scheduleList);
+    }
+
+  
   }
 }

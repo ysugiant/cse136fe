@@ -6,11 +6,9 @@
 }
 
 <h2>Index</h2>
-@Html.ActionLink("Refresh", "Index")
-<br />
-<!-- Html.Partial("StudentEnrollment", (web136.Models.Student.PLStudent)ViewBag.student) -->
 
-@using (Html.BeginForm("Index", "ScheduledCourse"))
+
+@using (Html.BeginForm("Index", "Enrollment/Register"))
 {
     <h2>Schedule</h2>
     <table id="tableScheduleList">
@@ -33,7 +31,7 @@
         { 
             <tr>
                 <td>
-                    @Html.ActionLink("Add", "Enroll", "Student", new { student_id = ViewBag.student_id, schedule_id = item.schedule_id }, null)
+                    @Html.ActionLink("Enroll", "Create", new { student_id = ViewBag.student_id, schedule_id = item.schedule_id })
                 </td>
                 <td>
                     @item.year

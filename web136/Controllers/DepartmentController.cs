@@ -80,18 +80,16 @@ namespace web136.Controllers
         PLDepartment department = DepartmentClientService.GetDepartmentDetail(id);
         
         List<PLStaff> st = StaffClientService.GetStaffList();
-        List<string> res = new List<string>();
-        List<string> idlist = new List<string>();
-        /*foreach(PLStaff tmp in st)
+        List<SelectListItem> res = new List<SelectListItem>();
+
+        foreach(PLStaff tmp in st)
         {
-            if (tmp.Department.ID == Convert.ToInt32(id))
+            if (tmp.Department.deptName.Equals(id))
             {
-                res.Add(tmp.FirstName + " "  + tmp.LastName);
-                idlist.Add(tmp.ID.ToString());
+                res.Add(new SelectListItem{Value = tmp.ID.ToString(), Text = tmp.FirstName + " "  + tmp.LastName});
             }
-        }*/
-        ViewBag.listStaff = res.ToArray();
-        ViewBag.chairID = idlist.ToArray();
+        }
+        ViewBag.listStaff = res;
         
         return View("Edit", department);
     }
