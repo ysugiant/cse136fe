@@ -11,7 +11,7 @@
 
 <div id="SampleStudent"></div>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(""))
 {
     @Html.ValidationSummary(true) 
 
@@ -66,6 +66,46 @@
             @Html.ValidationMessageFor(model => model.Password)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShoeSize)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.ShoeSize)
+            @Html.ValidationMessageFor(model => model.ShoeSize)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Weight)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Weight)
+            @Html.ValidationMessageFor(model => model.Weight)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StudentLevel)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.StudentLevel)
+            @Html.ValidationMessageFor(model => model.StudentLevel)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Status)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Status)
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Major)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Major)
+            @Html.ValidationMessageFor(model => model.Major)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>
@@ -93,14 +133,24 @@
                   info += "Last: " + data.LastName + "<br />";
                   info += "Email : " + data.EmailAddress + "<br />";
                   info += "Password : " + data.Password + "<br />";
+                  info += "ShoeSize : " + data.ShoeSize + "<br />";
+                  info += "Weight : " + data.Weight + "<br />";
+                  info += "Level : " + data.StudentLevel + "<br />";
+                  info += "Major : " + data.Major + "<br />";
+                  info += "Status : " + data.Status + "<br />";
 
                   // using jquery library to prepopulate the sample data...
-                  $("#ID").attr("value", "");
+                  $("#ID").attr("value", "A74185296");
                   $("#SSN").attr("value", "987654321");
                   $("#FirstName").attr("value", "John");
                   $("#LastName").attr("value", "Smith");
                   $("#EmailAddress").attr("value", "John.Smith@ucsd.edu");
                   $("#Password").attr("value", "password");
+                  $("#ShoeSize").attr("value", 10);
+                  $("#Weight").attr("value", 145);
+                  $("#StudentLevel").attr("value", "freshman");
+                  $("#Major").attr("value", 1);
+                  $("#Status").attr("value", 0);
                   $(SampleStudent).html(info);
               });
         });

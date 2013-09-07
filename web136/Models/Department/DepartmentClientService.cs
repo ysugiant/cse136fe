@@ -33,7 +33,6 @@ namespace web136.Models.Department
     /// <param name="s"></param>
     public static void CreateDepartment(PLDepartment s)
     {
-      s.chair_id = 0;
       SLDepartment.Department newDepartment = DTO_to_SL(s);
 
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
@@ -61,12 +60,12 @@ namespace web136.Models.Department
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public static PLDepartment GetDepartmentDetail(string id)
+    public static PLDepartment GetDepartmentDetail(string deptName)
     {
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
 
       string[] errors = new string[0];
-      SLDepartment.GetDepartmentDetailRequest request = new SLDepartment.GetDepartmentDetailRequest(Convert.ToInt32(id), errors);
+      SLDepartment.GetDepartmentDetailRequest request = new SLDepartment.GetDepartmentDetailRequest(deptName, errors);
       SLDepartment.GetDepartmentDetailResponse response = SLDepartment.GetDepartmentDetail(request);
       SLDepartment.Department newDepartment = response.GetDepartmentDetailResult;
       //System.Diagnostics.Debug.WriteLine("newDepartment value: " + newDepartment.ToString());
@@ -79,11 +78,11 @@ namespace web136.Models.Department
     /// call service layer's delete department method
     /// </summary>
     /// <param name="id"></param>
-    public static bool DeleteDepartment(string id)
+    public static bool DeleteDepartment(int id)
     {
       SLDepartment.ISLDepartment SLDepartment = new SLDepartment.SLDepartmentClient();
       string[] errors = new string[0];
-      SLDepartment.DeleteDepartmentRequest request = new SLDepartment.DeleteDepartmentRequest(Convert.ToInt32(id), errors);
+      SLDepartment.DeleteDepartmentRequest request = new SLDepartment.DeleteDepartmentRequest(id, errors);
       SLDepartment.DeleteDepartmentResponse response = SLDepartment.DeleteDepartment(request);
       if (response.errors.Length > 0)
         return false;

@@ -1,21 +1,20 @@
-﻿@model IEnumerable<web136.Models.Student.PLStudent>
+﻿@model IEnumerable<web136.Models.Staff.PLStaff>
 
 @{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a href="" onclick="return GetNumStudentsTotal()">Click for # students so far... (json call)</a>
+<!--
+<a href="" onclick="return GetNumStaffTotal()">Click for # staff so far... (json call)</a>
 
-<div id="DivNumStudents"></div>
+<div id="DivNumStaff"></div>
+-->
+<h2>Staff List</h2>
 
-<h2>Student List</h2>
-
-<table id="tableStudentList">
+<table id="tableStaffList">
     <tr>
         <th></th>
         <th>ID
-        </th>
-        <th>SSN
         </th>
         <th>FirstName
         </th>
@@ -25,21 +24,14 @@
         </th>
         <th>Password
         </th>
-        <th>ShoeSize
+        <th>Department
         </th>
-        <th>Weight
-        </th>
-        <th>Level
-        </th>
-        <th>Major
-        </th>
-        <th>Status
+        <th>InstructorStatus
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-    
         <tr>
             <td style="width:50px;">
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
@@ -49,9 +41,6 @@
             </td>
             <td>
                 @item.ID
-            </td>
-            <td>
-                @item.SSN
             </td>
             <td>
                 @item.FirstName
@@ -66,22 +55,12 @@
                 @item.Password
             </td>
             <td>
-                @item.ShoeSize
+                @item.Department.deptName
             </td>
             <td>
-                @item.Weight
-            </td>
-            <td>
-                @item.StudentLevel
-            </td>
-            <td>
-                @item.Major
-            </td>
-            <td>
-                @item.Status
+                @item.isInstructor
             </td>
         </tr>
-    
     }
 
 </table>
@@ -89,7 +68,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
+<!--
 <script type="text/javascript">
     $(document).ready(function () {
         $.ajaxSettings.cache = false;
@@ -98,12 +77,13 @@
 
     function GetNumStudentsTotal() {
         $.getJSON(
-            '/Student/GetNumStudentsTotal',
+            '/Staff/GetNumStaffTotal',
             function (data) {
-                $("#DivNumStudents").html(data);
+                $("#DivNumStaffMembers").html(data);
             });
 
         return false; // this prevents the page from going to "nowhere"
     }
 
 </script>
+-->

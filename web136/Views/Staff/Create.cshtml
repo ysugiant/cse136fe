@@ -1,0 +1,111 @@
+﻿@model web136.Models.Staff.PLStaff
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<!--<input id="buttonGetSampleStaff" type="button" value="Click for sample staff (JSON query)" />
+
+<div id="SampleStaff"></div> -->
+
+@using (Html.BeginForm(""))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fields</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FirstName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.FirstName)
+            @Html.ValidationMessageFor(model => model.FirstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.LastName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.LastName)
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.EmailAddress)
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Department)
+        </div>
+        <div>
+            @Html.DropDownList("departmentFilter", (List<SelectListItem>)ViewData["DepartmentList"])
+        </div>
+        <div>
+            @Html.LabelFor(model => model.isInstructor)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.isInstructor)
+            @Html.ValidationMessageFor(model => model.isInstructor)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+
+<!--
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+        $(buttonGetSampleStaff).click(function () {
+            $.getJSON(
+              '/Staff/GetSampleStaff',
+              { idx: '1' },
+              function (data) {
+                  var info = "";
+                  info += "ID: " + data.ID + "<br />";
+                  info += "First : " + data.FirstName + "<br />";
+                  info += "Last: " + data.LastName + "<br />";
+                  info += "Email : " + data.EmailAddress + "<br />";
+                  info += "Password : " + data.Password + "<br />";
+                  info += "Department : " + data.Department + "<br />";
+                  info += "Instructor : " + data.isInstructor + "<br />";
+
+                  // using jquery library to prepopulate the sample data...
+                  $("#ID").attr("value", 99);
+                  $("#FirstName").attr("value", "John");
+                  $("#LastName").attr("value", "Smith");
+                  $("#EmailAddress").attr("value", "John.Smith@ucsd.edu");
+                  $("#Password").attr("value", "password");
+                  $("#Department").attr("value", 1);
+                  $("#isInstructor").attr("value", 1);
+                  $(SampleStaff).html(info);
+              });
+        });
+    });
+
+</script>
+-->

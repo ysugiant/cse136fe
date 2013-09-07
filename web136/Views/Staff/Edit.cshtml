@@ -1,4 +1,4 @@
-﻿@model web136.Models.Student.PLStudent
+﻿@model web136.Models.Staff.PLStaff
 
 @{
     ViewBag.Title = "Edit";
@@ -12,16 +12,6 @@
         
         <fieldset>
             <legend>Fields</legend>
-            
-            
-            
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SSN) 
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.SSN) 
-                @Html.ValidationMessageFor(model => model.SSN) 
-            </div>
             
             <div class="editor-label">
                 @Html.LabelFor(model => model.FirstName) 
@@ -56,44 +46,21 @@
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.ShoeSize) 
+                @Html.LabelFor(model => model.Department)
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.ShoeSize) 
-                @Html.ValidationMessageFor(model => model.ShoeSize) 
+                @Html.TextBoxFor(model => model.Department) 
+                @Html.ValidationMessageFor(model => model.Department) 
             </div>
 
             <div class="editor-label">
-                @Html.LabelFor(model => model.Weight) 
+                @Html.LabelFor(model => model.isInstructor) 
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.Weight) 
-                @Html.ValidationMessageFor(model => model.Weight) 
+                @Html.TextBoxFor(model => model.isInstructor) 
+                @Html.ValidationMessageFor(model => model.isInstructor) 
             </div>
 
-            <div class="editor-label">
-                @Html.LabelFor(model => model.StudentLevel) 
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.StudentLevel) 
-                @Html.ValidationMessageFor(model => model.StudentLevel) 
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Major) 
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.Major) 
-                @Html.ValidationMessageFor(model => model.Major) 
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Status) 
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(model => model.Status) 
-                @Html.ValidationMessageFor(model => model.Status) 
-            </div>
             <p>
                 <input type="submit" value="Save" />
             </p>

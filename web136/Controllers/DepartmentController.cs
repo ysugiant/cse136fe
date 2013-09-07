@@ -82,14 +82,14 @@ namespace web136.Controllers
         List<PLStaff> st = StaffClientService.GetStaffList();
         List<string> res = new List<string>();
         List<string> idlist = new List<string>();
-        foreach(PLStaff tmp in st)
+        /*foreach(PLStaff tmp in st)
         {
             if (tmp.Department.ID == Convert.ToInt32(id))
             {
                 res.Add(tmp.FirstName + " "  + tmp.LastName);
                 idlist.Add(tmp.ID.ToString());
             }
-        }
+        }*/
         ViewBag.listStaff = res.ToArray();
         ViewBag.chairID = idlist.ToArray();
         
@@ -97,9 +97,9 @@ namespace web136.Controllers
     }
 
     //
-    // POST: /Student/Edit/
+    // POST: /Department/Edit/
     [HttpPost]
-    public ActionResult Edit(string id, FormCollection collection)
+    public ActionResult Edit(FormCollection collection)
     {
         try
         {
@@ -119,7 +119,7 @@ namespace web136.Controllers
     //
     // GET: /Student/Delete/5
 
-    public ActionResult Delete(string id)
+    public ActionResult Delete(int id)
     {
       try
       {

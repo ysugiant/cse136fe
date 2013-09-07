@@ -704,6 +704,10 @@
     <Content Include="Views\Enrollment\StudentSchedule.cshtml" />
     <Content Include="Views\Enrollment\InstructorSchedule.cshtml" />
     <Content Include="Views\Enrollment\Transcript.cshtml" />
+    <Content Include="Views\Staff\Create.cshtml" />
+    <Content Include="Views\Staff\Edit.cshtml" />
+    <Content Include="Views\Staff\Error.cshtml" />
+    <Content Include="Views\Staff\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

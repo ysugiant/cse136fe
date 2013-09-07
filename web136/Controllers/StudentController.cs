@@ -42,6 +42,7 @@ namespace web136.Controllers
         ViewBag.breadCrumbData += " > Create";
       }
       PLStudent student = new PLStudent();
+
       return View("Create", student);
     }
 
@@ -50,6 +51,18 @@ namespace web136.Controllers
     [HttpPost]
     public ActionResult Create(FormCollection collection)
     {
+        /*int year = DateTime.Now.Year;
+        int previousYear = year - 1;
+        int nextYear = year + 1;
+
+        // only display the current year, previous year, and next year as selections
+        List<SelectListItem> MajorList = new List<SelectListItem>();
+        MajorList.Add(new SelectListItem { Text = "All Years", Value = "" });
+        MajorList.Add(new SelectListItem { Text = previousYear.ToString(), Value = previousYear.ToString() });
+        MajorList.Add(new SelectListItem { Text = year.ToString(), Value = year.ToString() });
+        MajorList.Add(new SelectListItem { Text = nextYear.ToString(), Value = nextYear.ToString() });
+
+        ViewBag.MajorList = MajorList;*/
       try
       {
         PLStudent student = new PLStudent();
@@ -59,8 +72,13 @@ namespace web136.Controllers
         student.SSN = collection["SSN"];
         student.EmailAddress = collection["EmailAddress"];
         student.Password = collection["Password"];
+        student.ShoeSize = float.Parse(collection["ShoeSize"]);
+        student.Weight = Convert.ToInt32(collection["Weight"]);
+        student.StudentLevel = collection["StudentLevel"];
+        student.Major = Convert.ToInt32(collection["Major"]);
+        student.Status = Convert.ToInt32(collection["Status"]);
         StudentClientService.CreateStudent(student);
-        return RedirectToAction("Index");
+        return RedirectToAction("Index");// this brings us to the student List page
       }
       catch (Exception e)
       {
@@ -70,7 +88,7 @@ namespace web136.Controllers
     }
 
     //
-    // GET: /Student/Create
+    // GET: /Student/Edit
     public ActionResult Edit(string id)
     {
       if (HttpContext != null)
@@ -92,18 +110,23 @@ namespace web136.Controllers
       try
       {
         PLStudent student = new PLStudent();
-        student.ID = collection["ID"];
+        student.ID = id;//collection["ID"];
         student.FirstName = collection["FirstName"];
         student.LastName = collection["LastName"];
         student.SSN = collection["SSN"];
         student.EmailAddress = collection["EmailAddress"];
         student.Password = collection["Password"];
+        student.ShoeSize = float.Parse(collection["ShoeSize"]);
+        student.Weight = Convert.ToInt32(collection["Weight"]);
+        student.StudentLevel = collection["StudentLevel"];
+        student.Major = Convert.ToInt32(collection["Major"]);
+        student.Status = Convert.ToInt32(collection["Status"]);
         StudentClientService.UpdateStudent(student);
         return RedirectToAction("Index");
       }
       catch
       {
-        return View();
+        return View("Error");
       }
     }
 

@@ -103,7 +103,6 @@ namespace web136.Models.Staff
             PLStaff.LastName = staffMember.last_name;
             PLStaff.EmailAddress = staffMember.email;
             PLStaff.Password = staffMember.password;
-            //staffMember.dept = DTO_to_SL(staffMember.dept);
             PLStaff.Department = DTO_to_PL(staffMember.dept);
             PLStaff.isInstructor = staffMember.isInstructor;
 

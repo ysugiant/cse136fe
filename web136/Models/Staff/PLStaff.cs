@@ -37,6 +37,7 @@ namespace web136.Models.Staff
     [DisplayName("Department")]
     [ScaffoldColumn(false)] // don't show this in <%: Html.DisplayForModel() %>
     public PLDepartment Department { get; set; }
+    //public int Department { get; set; }
 
     [Required]
     [DisplayName("Instructor Status")]

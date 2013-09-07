@@ -71,6 +71,10 @@ namespace web136.Models.Student
             SLStudent.GetStudentResponse response = SLStudent.GetStudent(request);
             SLStudent.Student newStudent = response.GetStudentResult;
             // this is the data transfer object code...
+            if (newStudent == null)
+            {
+                System.Diagnostics.Debug.WriteLine("DALStudent getStudentDetail is fucked up!");
+            }
             return DTO_to_PL(newStudent);
         }
 
@@ -172,7 +176,15 @@ namespace web136.Models.Student
           mySchedule.year = s.year;
           mySchedule.quarter = s.quarter;
           mySchedule.session = s.session;
+
           mySchedule.course = DTO_to_PL(s.course);
+          mySchedule.time = s.time;
+          mySchedule.timeID = s.timeID;
+          mySchedule.day = s.day;
+          mySchedule.dayID = s.dayID;
+          mySchedule.instructorID = s.instr_id;
+          mySchedule.firstName = s.instructor_fName;
+          mySchedule.lastName = s.instructor_lName;
           return mySchedule;
         }
 
