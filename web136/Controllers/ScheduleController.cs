@@ -12,7 +12,7 @@ namespace web136.Controllers
   {
 
       //
-      // CREATE: /Schedule/Create/
+      // CREATE: /ScheduledCourse/Create/
       public ActionResult Create()
       {
           if (HttpContext != null)
@@ -26,7 +26,7 @@ namespace web136.Controllers
       }
 
       //
-      // POST: /Schedule/Create
+      // POST: /ScheduledCourse/Create
       [HttpPost]
       public ActionResult Create(FormCollection collection)
       {
@@ -61,7 +61,7 @@ namespace web136.Controllers
       }
 
       //
-      // GET: /Schedule/Edit/
+      // GET: /ScheduledCourse/Edit/
       public ActionResult Edit()
       {
           if (HttpContext != null)
@@ -75,7 +75,7 @@ namespace web136.Controllers
       }
 
       //
-      // POST: /Schedule/Edit/
+      // POST: /ScheduledCourse/Edit/
       [HttpPost]
       public ActionResult Edit(FormCollection collection)
       {
@@ -110,7 +110,7 @@ namespace web136.Controllers
       }
 
       //
-      // GET: /Schedule/Get/
+      // GET: /ScheduledCourse/Get/
       public ActionResult Get()
       {
           if (HttpContext != null)
@@ -124,7 +124,17 @@ namespace web136.Controllers
       }
 
       //
-      // GET: /Schedule/Delete/
+      // GET: /ScheduledCourse/List/
+      public ActionResult List()
+      {
+          List<PLScheduledCourse> list = ScheduleClientService.GetScheduleListComplete();
+          ViewBag.breadCrumbData = "Schedule List";
+
+          return View("List", list);
+      }
+
+      //
+      // GET: /ScheduledCourse/Delete/
       public ActionResult Delete()
       {
           if (HttpContext != null)
@@ -138,7 +148,7 @@ namespace web136.Controllers
       }
 
       //
-      // POST: /Schedule/Delete/
+      // POST: /ScheduledCourse/Delete/
       [HttpPost]
       public ActionResult Delete(FormCollection collection)
       {
@@ -158,28 +168,8 @@ namespace web136.Controllers
           }
       }
 
-      /*
-
-    public ActionResult Filter(string yearFilter, string quarterFilter)
-    {
-      if (yearFilter == null)
-        yearFilter = "";
-
-      if (quarterFilter == null)
-        quarterFilter = "";
-
-      string student_id = Session["id"].ToString();
-
-      PLStudent student = StudentClientService.GetStudentDetail(student_id);
-      ViewBag.student = student;
-
-      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
-
-      return Json(scheduleList);
-    }*/
-
       //
-      // AJAX: for /Schedule/Create
+      // AJAX: for /ScheduledCourse/Create
       public JsonResult GetSampleSchedule(int idx)
       {
           List<string> errors = new List<string>();
@@ -205,76 +195,6 @@ namespace web136.Controllers
 
 
 
-
-
-
-
-
-
-
-
-    //
-    // GET: /Schedule/
-    public ActionResult Index(string yearFilter, string quarterFilter)
-    {
-        
-      if (yearFilter == null)
-        yearFilter = "1950";
-        
-      if (quarterFilter == null)
-        quarterFilter = "";
-
-      string student_id = Session["id"].ToString();
-
-      PLStudent student = StudentClientService.GetStudentDetail(student_id);
-      ViewBag.student = student;
-      int tmpYear = Convert.ToInt32(yearFilter);
-
-      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(tmpYear, quarterFilter);
-
-      int year = DateTime.Now.Year;
-      int previousYear = year - 1;
-      int nextYear = year + 1;
-
-      // only display the current year, previous year, and next year as selections
-      List<SelectListItem> YearList = new List<SelectListItem>();
-      YearList.Add(new SelectListItem { Text = "All Years", Value = "" });
-      YearList.Add(new SelectListItem { Text = previousYear.ToString(), Value = previousYear.ToString() });
-      YearList.Add(new SelectListItem { Text = year.ToString(), Value = year.ToString() });
-      YearList.Add(new SelectListItem { Text = nextYear.ToString(), Value = nextYear.ToString() });
-
-      // these usually comes from the database... 
-      List<SelectListItem> QuarterList = new List<SelectListItem>();
-      QuarterList.Add(new SelectListItem { Text = "All Quarters", Value = "" });
-      QuarterList.Add(new SelectListItem { Text = "Fall", Value = "Fall" });
-      QuarterList.Add(new SelectListItem { Text = "Winter", Value = "Winter" });
-      QuarterList.Add(new SelectListItem { Text = "Spring", Value = "Spring" });
-      QuarterList.Add(new SelectListItem { Text = "Summer 1", Value = "Summer 1" });
-      QuarterList.Add(new SelectListItem { Text = "Summer 2", Value = "Summer 2" });
-
-      ViewBag.YearList = YearList;
-      ViewBag.QuarterList = QuarterList;
-
-      return View("Index", scheduleList);
-    }
-
-    public ActionResult Filter(string yearFilter, string quarterFilter)
-    {
-      if (yearFilter == null)
-        yearFilter = "";
-
-      if (quarterFilter == null)
-        quarterFilter = "";
-
-      string student_id = Session["id"].ToString();
-
-      PLStudent student = StudentClientService.GetStudentDetail(student_id);
-      ViewBag.student = student;
-
-      List<PLScheduledCourse> scheduleList = ScheduleClientService.GetScheduleList(Convert.ToInt32(yearFilter), quarterFilter);
-
-      return Json(scheduleList);
-    }
 
   }
 }

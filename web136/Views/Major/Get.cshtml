@@ -9,7 +9,8 @@
 <h2>Get Major</h2>
 <div id="GetMajor"></div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.ValidationSummary(true) 
         
         <fieldset>
@@ -29,7 +30,7 @@
                 @Html.LabelFor(model => model.major_name) 
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.major_name, new { @autocomplete = "off", @readonly=true}) 
+                @Html.TextBoxFor(model => model.major_name, new { @autocomplete = "off", @readonly = true }) 
                 @Html.ValidationMessageFor(model => model.major_name) 
             </div>
             
@@ -37,7 +38,7 @@
                 @Html.LabelFor(model => model.dept_id) 
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.dept_id, new { @autocomplete = "off", @readonly=true}) 
+                @Html.TextBoxFor(model => model.dept_id, new { @autocomplete = "off", @readonly = true }) 
                 @Html.ValidationMessageFor(model => model.dept_id) 
             </div>
 
@@ -45,7 +46,10 @@
     } 
 
     <div>
-        @Html.ActionLink("Back to List", "Index") 
+        @Html.ActionLink("Create Major", "Create") <br />
+        @Html.ActionLink("Delete Major", "Delete") <br />
+        @Html.ActionLink("Edit Major", "Edit") <br />
+        @Html.ActionLink("Get Major List", "List") <br />
     </div>
 <script type="text/javascript">
     $(document).ready
@@ -68,7 +72,7 @@
                             //$("#major_id").attr("value", "");
                             $("#major_name").attr("value", data.major_name);
                             $("#dept_id").attr("value", data.dept_id);
-                            $(GetMajor).html(info);
+                            $(GetMajor).html(data);
                         }
                     )
                 }

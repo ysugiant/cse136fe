@@ -151,7 +151,10 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Create Scheduled Course", "Create") <br />
+    @Html.ActionLink("Delete Scheduled Course", "Delete") <br />
+    @Html.ActionLink("Edit Scheduled Course", "Edit") <br />
+    @Html.ActionLink("Get Scheduled Course List", "List") <br />
 </div>
 <br />
 
@@ -160,10 +163,10 @@
     $(document).ready
         (function () {
             $.ajaxSettings.cache = false;
-            $(buttonGetSched).click
+            $(buttonGetSchedule).click
             (
                 function () {
-                    var id = document.getElementById('major_id').value;
+                    var id = document.getElementById('schedule_id').value;
                     $.getJSON
                     (
                         '/ScheduledCourse/GetSampleSchedule/',
@@ -186,7 +189,7 @@
                             $("#instructorID").attr("value", "68");
                             $("#firstName").attr("value", "Ranjit");
                             $("#lastName").attr("value", "Jhala");
-                            $(GetSchedule).html(info);
+                            $(GetSchedule).html(data);
                         }
                     )
                 }

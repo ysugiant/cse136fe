@@ -93,16 +93,16 @@ namespace web136.Controllers
          PLMajor major = new PLMajor();
          return View("Get", major);
      }
-     
-    /* //
-     // LIST: /Major/List/
-     public ActionResult List(int placeHolder)
+
+     //
+     // GET: /ScheduledCourse/List/
+     public ActionResult List()
      {
          List<PLMajor> list = MajorClientService.GetMajorList();
          ViewBag.breadCrumbData = "Major List";
 
          return View("List", list);
-     }*/
+     }
 
      //
      // GET: /Major/Delete/
