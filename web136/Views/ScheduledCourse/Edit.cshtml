@@ -19,12 +19,9 @@
                 @Html.LabelFor(model => model.schedule_id) 
             </div>
             <div class="editor-field">
-                @Html.TextBoxFor(model => model.schedule_id) 
+                @Html.TextBoxFor(model => model.schedule_id, new { @autocomplete = "off", @readonly = true }) 
                 @Html.ValidationMessageFor(model => model.schedule_id) 
             </div>
-            <p>
-                <input id="buttonEditSchedule" type="button" value="Get Schedule" />
-            </p>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.year)
@@ -147,7 +144,7 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Save" />
         </p>
     </fieldset>
 
@@ -160,44 +157,3 @@
     @Html.ActionLink("Get Scheduled Course List", "List") <br />
 </div>
 <br />
-
-
-<script type="text/javascript">
-    $(document).ready
-        (function () {
-            $.ajaxSettings.cache = false;
-            $(buttonEditSchedule).click
-            (
-                function () {
-                    var id = document.getElementById('schedule_id').value;
-                    $.getJSON
-                    (
-                        '/ScheduledCourse/GetSampleSchedule/',
-                        { idx: id },
-                        function (data) {
-                            // using jquery library to prepopulate the sample data...
-                            //$("#schedule_id").attr("value", "");
-                            $("#year").attr("value", "2013");
-                            $("#quarter").attr("value", "Spring");
-                            $("#session").attr("value", "A34");
-                            $("#id").attr("value", "36");
-                            $("#description").attr("value", "Programming Languages: Principles and Paradigms");
-                            $("#title").attr("value", "CSE 130");
-                            $("#courseLevel").attr("value", "upper");
-                            $("#units").attr("value", "4");
-                            $("#timeID").attr("value", "11");
-                            $("#dayID").attr("value", "4");
-                            $("#time").attr("value", "1pm-2:30pm");
-                            $("#day").attr("value", "Mon/Wed/Fri");
-                            $("#instructorID").attr("value", "68");
-                            $("#firstName").attr("value", "Ranjit");
-                            $("#lastName").attr("value", "Jhala");
-                            $(EditSchedule).html(data);
-                        }
-                    )
-                }
-            );
-        }
-    );
-
-</script>

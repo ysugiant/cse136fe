@@ -62,7 +62,7 @@ namespace web136.Controllers
 
       //
       // GET: /ScheduledCourse/Edit/
-      public ActionResult Edit()
+      public ActionResult Edit(string id)
       {
           if (HttpContext != null)
           {
@@ -70,7 +70,7 @@ namespace web136.Controllers
               ViewBag.breadCrumbData = "<a href='" + url.Action("Edit", "Schedule") + "'>Edit Schedule</a>";
               ViewBag.breadCrumbData += " > Edit";
           }
-          PLScheduledCourse sched = new PLScheduledCourse();
+          PLScheduledCourse sched = ScheduleClientService.GetStudentDetail(Convert.ToInt32(id));
           return View("Edit", sched);
       }
 

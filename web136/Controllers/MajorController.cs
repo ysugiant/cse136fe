@@ -48,7 +48,7 @@ namespace web136.Controllers
     
     //
     // GET: /Major/Edit/
-    public ActionResult Edit()
+    public ActionResult Edit(string id)
     {
         if (HttpContext != null)
         {
@@ -56,7 +56,8 @@ namespace web136.Controllers
             ViewBag.breadCrumbData = "<a href='" + url.Action("Edit", "Major") + "'>Edit Major</a>";
             ViewBag.breadCrumbData += " > Edit";
         }
-        PLMajor major = new PLMajor();
+        
+        PLMajor major = MajorClientService.GetMajorDetail(Convert.ToInt32(id));
         return View("Edit", major);
     }
 
