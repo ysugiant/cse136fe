@@ -77,7 +77,7 @@ namespace web136.Models.Major
         /// </summary>
         /// <param name="deptName"></param>
         /// <returns>List</Scheduled></returns>
-        public static List<PLMajor> GetMajorList(string deptName)
+        public static List<PLMajor> GetMajorList()
         {
             List<PLMajor> majorList = new List<PLMajor>();
 

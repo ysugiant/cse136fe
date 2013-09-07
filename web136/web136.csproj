@@ -134,6 +134,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EnrollmentController.cs" />
+    <Compile Include="Controllers\MajorController.cs" />
     <Compile Include="Controllers\ScheduleDayController.cs" />
     <Compile Include="Controllers\ScheduleTimeController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
@@ -549,6 +550,9 @@
     <Content Include="Service References\SLSchedule\web136.SLSchedule.UpdateCourseScheduleResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\SLSchedule\web136.SLSchedule.GetScheduleListCompleteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\SLStaff\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -704,6 +708,12 @@
     <Content Include="Views\Enrollment\StudentSchedule.cshtml" />
     <Content Include="Views\Enrollment\InstructorSchedule.cshtml" />
     <Content Include="Views\Enrollment\Transcript.cshtml" />
+    <Content Include="Views\Major\Create.cshtml" />
+    <Content Include="Views\Major\Delete.cshtml" />
+    <Content Include="Views\Major\DisplayTemplates\PLMajor.cshtml" />
+    <Content Include="Views\Major\Edit.cshtml" />
+    <Content Include="Views\Major\Get.cshtml" />
+    <Content Include="Views\Major\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
