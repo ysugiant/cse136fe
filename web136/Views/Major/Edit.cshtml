@@ -9,7 +9,8 @@
 <h2>Edit Major</h2>
 <div id="EditMajor"></div>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.ValidationSummary(true) 
         
         <fieldset>
@@ -47,7 +48,10 @@
     } 
 
     <div>
-        @Html.ActionLink("Back to List", "Index") 
+        @Html.ActionLink("Create Major", "Create") <br />
+        @Html.ActionLink("Delete Major", "Delete") <br />
+        @Html.ActionLink("Get Major", "Get") <br />
+        @Html.ActionLink("Get Major List", "List") <br />
     </div>
 <script type="text/javascript">
     $(document).ready
