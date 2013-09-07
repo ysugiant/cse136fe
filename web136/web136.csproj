@@ -657,7 +657,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\SLStudent\SLStudent.wsdl" />
-    <Content Include="Views\ScheduledCourse\Index.cshtml" />
     <Content Include="Views\Shared\Breadcrumb.cshtml" />
     <Content Include="Views\Shared\StudentEnrollment.cshtml" />
     <Content Include="Views\Student\DisplayTemplates\PLStudent.cshtml" />
@@ -723,6 +722,7 @@
     <Content Include="Views\ScheduledCourse\Get.cshtml" />
     <Content Include="Views\ScheduledCourse\Delete.cshtml" />
     <Content Include="Views\ScheduledCourse\List.cshtml" />
+    <Content Include="Views\ScheduledCourse\DisplayTemplates\PLScheduledCourse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,203 +1,105 @@
-﻿@model web136.Models.Schedule.PLScheduledCourse
+﻿@model IEnumerable<web136.Models.Schedule.PLScheduledCourse>
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Schedule</h2>
+<h2>Schedule List</h2>
 
-<input id="buttonGetSampleSchedule" type="button" value="Click for an existing Schedule" />
+<table id="tableMajorList">
+    <tr>
+        <th></th>
+        <th>Schedule ID
+        </th>
+        <th>Year
+        </th>
+        <th>Quarter
+        </th>
+        <th>Session
+        </th>
+        <th>Course ID
+        </th>
+        <th>Course Title
+        </th>
+        <th>Course Description
+        </th>
+        <th>Course Level
+        </th>
+        <th>Units
+        </th>
+        <th>Time ID
+        </th>
+        <th>Day ID
+        </th>
+        <th>Time
+        </th>
+        <th>Day
+        </th>
+        <th>Instructor ID
+        </th>
+        <th>Instructor First Name
+        </th>
+        <th>Instructor Last Name
+        </th>
+    </tr>
 
-<div id="CreateSchedule"></div>
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td style="width:50px;">
+                @Html.ActionLink("Edit", "Edit", new { id = item.schedule_id }) 
+            </td>
+            <td>
+                @item.schedule_id
+            </td>
+            <td>
+                @item.year
+            </td>
+            <td>
+                @item.quarter
+            </td>
+            <td>
+                @item.session
+            </td>
+            <td>
+                @item.course.id
+            </td>
+            <td>
+                @item.course.title
+            </td>
+            <td>
+                @item.course.description
+            </td>
+            <td>
+                @item.course.courseLevel
+            </td>
+            <td>
+                @item.course.units
+            </td>
+            <td>
+                @item.timeID
+            </td>
+            <td>
+                @item.dayID
+            </td>
+            <td>
+                @item.time
+            </td>
+            <td>
+                @item.day
+            </td>
+            <td>
+                @item.instructorID
+            </td>
+            <td>
+                @item.firstName
+            </td>
+            <td>
+                @item.lastName
+            </td>
+        </tr>
+    }
 
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true) 
-
-    <fieldset>
-        <legend>Fields</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.year)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.year)
-            @Html.ValidationMessageFor(model => model.year)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.quarter)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.quarter)
-            @Html.ValidationMessageFor(model => model.quarter)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.session)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.session)
-            @Html.ValidationMessageFor(model => model.session)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.course.id)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.course.id)
-            @Html.ValidationMessageFor(model => model.course.id)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.course.title)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.course.title)
-            @Html.ValidationMessageFor(model => model.course.title)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.course.description)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.course.description)
-            @Html.ValidationMessageFor(model => model.course.description)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.course.courseLevel)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.course.courseLevel)
-            @Html.ValidationMessageFor(model => model.course.courseLevel)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.course.units)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.course.units)
-            @Html.ValidationMessageFor(model => model.course.units)
-        </div>
-
-         <div class="editor-label">
-            @Html.LabelFor(model => model.dayID)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.dayID)
-            @Html.ValidationMessageFor(model => model.dayID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.timeID)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.timeID)
-            @Html.ValidationMessageFor(model => model.timeID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.day)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.day)
-            @Html.ValidationMessageFor(model => model.day)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.time)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.time)
-            @Html.ValidationMessageFor(model => model.time)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.instructorID)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.instructorID)
-            @Html.ValidationMessageFor(model => model.instructorID)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.firstName)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.firstName)
-            @Html.ValidationMessageFor(model => model.firstName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.lastName)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.lastName)
-            @Html.ValidationMessageFor(model => model.lastName)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-<br />
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajaxSettings.cache = false;
-        $(buttonGetSampleSchedule).click(function () {
-            $.getJSON(
-              '/ScheduledCourse/GetSampleSchedule/',
-              { idx: '100' },
-              function (data) {
-                  var info = "";
-                  //info += "Schedule ID: " + data.schedule_id + "<br />";
-                  info += "Year: " + data.year + "<br />";
-                  info += "Quarter: " + data.quarter + "<br />";
-                  info += "Session: " + data.session+ "<br />";
-                  info += "Course ID: " + data.course.id + "<br />";
-                  info += "Course Description: " + data.course.description + "<br />";
-                  info += "Course Title: " + data.course.title + "<br />";
-                  info += "Course Level: " + data.course.courseLevel + "<br />";
-                  info += "Units: " + data.course.units + "<br />";
-                  info += "Time ID: " + data.timeID + "<br />";
-                  info += "Day ID: " + data.dayID + "<br />";
-                  info += "Time: " + data.time  + "<br />";
-                  info += "Day: " + data.day + "<br />";
-                  info += "Instructor ID: " + data.instructorID + "<br />";
-                  info += "Instructor First Name: " + data.firstName + "<br />";
-                  info += "Instructor Last Name: " + data.lastName + "<br />";
-
-                  // using jquery library to prepopulate the sample data...
-                  //$("#schedule_id").attr("value", "");
-                  $("#year").attr("value", "2013");
-                  $("#quarter").attr("value", "Spring");
-                  $("#session").attr("value", "A34");
-                  $("#id").attr("value", "36");
-                  $("#description").attr("value", "Programming Languages: Principles and Paradigms");
-                  $("#title").attr("value", "CSE 130");
-                  $("#courseLevel").attr("value", "upper");
-                  $("#units").attr("value", "4");
-                  $("#timeID").attr("value", "11");
-                  $("#dayID").attr("value", "4");
-                  $("#time").attr("value", "1pm-2:30pm");
-                  $("#day").attr("value", "Mon/Wed/Fri");
-                  $("#instructorID").attr("value", "68");
-                  $("#firstName").attr("value", "Ranjit");
-                  $("#lastName").attr("value", "Jhala");
-                  $(CreateSchedule).html(info);
-              });
-        });
-
-    });
-
-</script>
-
+</table>

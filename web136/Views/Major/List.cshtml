@@ -4,9 +4,6 @@
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<a href="" onclick="return GetNumMajorTotal()">Click for # Majors so far... (json call)</a>
-
-<div id="DivNumMajors"></div>
 
 <h2>Major List</h2>
 
@@ -44,20 +41,3 @@
 
 </table>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajaxSettings.cache = false;
-
-    });
-
-    function GetNumMajorTotal() {
-        $.getJSON(
-            '/Student/GetNumMajorsTotal',
-            function (data) {
-                $("#DivNumMajor").html(data);
-            });
-
-        return false; // this prevents the page from going to "nowhere"
-    }
-
-</script>
