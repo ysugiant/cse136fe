@@ -1,0 +1,72 @@
+﻿@model web136.Models.Major.PLMajor
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Major</h2>
+
+<input id="buttonGetSampleMajor" type="button" value="Click for an existing Major" />
+
+<div id="CreateMajor"></div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true) 
+
+    <fieldset>
+        <legend>Fields</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.major_name)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.major_name)
+            @Html.ValidationMessageFor(model => model.major_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.dept_id)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.dept_id)
+            @Html.ValidationMessageFor(model => model.dept_id)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+        $(buttonGetSampleMajor).click(function () {
+            $.getJSON(
+              '/Major/GetSampleMajor/',
+              { idx: '1' },
+              function (data) {
+                  var info = "";
+                  info += "Major ID: " + data.major_id + "<br />";
+                  info += "Major Name: " + data.major_name + "<br />";
+                  info += "Department ID: " + data.dept_id + "<br />";
+
+                  // using jquery library to prepopulate the sample data...
+                  //$("#major_id").attr("value", "");
+                  $("#major_name").attr("value", "Computer Mastery");
+                  $("#dept_id").attr("value", "1");
+                  $(Major).html(info);
+              });
+        });
+
+    });
+
+</script>
+

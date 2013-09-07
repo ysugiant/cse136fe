@@ -100,6 +100,34 @@ namespace web136.Models.Schedule
         }
 
         /// <summary>
+        /// Get Schedule List Complete
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="quarter"></param>
+        /// <returns>List</Scheduled></returns>
+        public static List<PLScheduledCourse> GetScheduleListComplete()
+        {
+            List<PLScheduledCourse> scheduleList = new List<PLScheduledCourse>();
+
+            SLSchedule.ISLCourseSchedule client = new SLSchedule.SLCourseScheduleClient();
+
+            string[] errors = new string[0];
+            SLSchedule.GetScheduleListCompleteRequest request = new SLSchedule.GetScheduleListCompleteRequest(errors);
+            SLSchedule.GetScheduleListCompleteResponse response = client.GetScheduleListComplete(request);
+            SLSchedule.ScheduledCourse[] schedulesLoaded = response.GetScheduleListCompleteResult;
+
+            if (schedulesLoaded != null)
+            {
+                foreach (SLSchedule.ScheduledCourse s in schedulesLoaded)
+                {
+                    PLScheduledCourse schedule = DTO_to_PL(s);
+                    scheduleList.Add(schedule);
+                }
+            }
+            return scheduleList;
+        }
+
+        /// <summary>
         /// this is data transfer object for ScheduledCourse.
         /// Converting from presentation layer ScheduledCourse object to business layer ScheduledCourse object
         /// </summary>

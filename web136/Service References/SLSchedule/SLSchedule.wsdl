@@ -14,6 +14,12 @@
   <wsdl:message name="ISLCourseSchedule_GetScheduleList_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetScheduleListResponse" />
   </wsdl:message>
+  <wsdl:message name="ISLCourseSchedule_GetScheduleListComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleListComplete" />
+  </wsdl:message>
+  <wsdl:message name="ISLCourseSchedule_GetScheduleListComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetScheduleListCompleteResponse" />
+  </wsdl:message>
   <wsdl:message name="ISLCourseSchedule_InsertCourseSchedule_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertCourseSchedule" />
   </wsdl:message>
@@ -43,6 +49,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISLCourseSchedule/GetScheduleList" message="tns:ISLCourseSchedule_GetScheduleList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISLCourseSchedule/GetScheduleListResponse" message="tns:ISLCourseSchedule_GetScheduleList_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetScheduleListComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISLCourseSchedule/GetScheduleListComplete" message="tns:ISLCourseSchedule_GetScheduleListComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISLCourseSchedule/GetScheduleListCompleteResponse" message="tns:ISLCourseSchedule_GetScheduleListComplete_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertCourseSchedule">
       <wsdl:input wsaw:Action="http://tempuri.org/ISLCourseSchedule/InsertCourseSchedule" message="tns:ISLCourseSchedule_InsertCourseSchedule_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISLCourseSchedule/InsertCourseScheduleResponse" message="tns:ISLCourseSchedule_InsertCourseSchedule_OutputMessage" />
@@ -64,6 +74,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetScheduleList">
       <soap:operation soapAction="http://tempuri.org/ISLCourseSchedule/GetScheduleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetScheduleListComplete">
+      <soap:operation soapAction="http://tempuri.org/ISLCourseSchedule/GetScheduleListComplete" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

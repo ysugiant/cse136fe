@@ -1,0 +1,76 @@
+﻿@model web136.Models.Major.PLMajor
+
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Major</h2>
+<div id="DeleteMajor"></div>
+
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary(true) 
+        
+        <fieldset>
+            <legend>Fields</legend>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.major_id) 
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.major_id) 
+                @Html.ValidationMessageFor(model => model.major_id) 
+            </div>
+            <p>
+                <input id="buttonDelete" type="button" value="Get Major" />
+            </p>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.major_name) 
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.major_name) 
+                @Html.ValidationMessageFor(model => model.major_name) 
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.dept_id) 
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(model => model.dept_id) 
+                @Html.ValidationMessageFor(model => model.dept_id) 
+            </div>
+            <p>
+                <input type="submit" value="Delete" />
+            </p>
+        </fieldset>
+    } 
+
+
+
+<script type="text/javascript">
+    $(document).ready
+        (function () {
+            $.ajaxSettings.cache = false;
+            $(buttonDelete).click
+            (
+                function () {
+                    var id = document.getElementById('major_id').value;
+                    $.getJSON
+                    (
+                        '/Major/GetSampleMajor/',
+                        { idx: id },
+                        function (data) {
+                            // using jquery library to prepopulate the sample data...
+                            //$("#major_id").attr("value", "");
+                            $("#major_name").attr("value", data.major_name);
+                            $("#dept_id").attr("value", data.dept_id);
+                            $(DeleteMajor).html(info);
+                        }
+                    )
+                }
+            );
+        }
+    );
+
+</script>
