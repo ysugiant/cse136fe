@@ -38,6 +38,7 @@ namespace web136.Controllers
         }
 
         //View
+
         public ActionResult Student()
         {
             return RedirectToAction("Index", "Student");

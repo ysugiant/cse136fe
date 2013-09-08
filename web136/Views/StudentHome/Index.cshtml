@@ -1,0 +1,42 @@
+﻿@model web136.Models.Student.PLStudent
+
+@{
+    ViewBag.Title = "Student Home";
+}
+
+<h2>Student Menu</h2>
+
+<table id="tableMajorList">
+    <tr>
+        <th>Student Name
+        </th>
+        <th>Major
+        </th>
+        <th>Department
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @ViewBag.studentName
+        </td>
+        <td>
+            @ViewBag.majorName
+        </td>
+        <td>
+            @ViewBag.departmentName
+        </td>
+
+    </tr>
+</table>
+
+<ul>
+    <li>@Html.ActionLink("Edit Student Record", "EditStudentRecord")</li>
+    <li>@Html.ActionLink("View Student Record", "ViewStudentRecord")</li>
+    <li>@Html.ActionLink("Register", "RegisterForClass")</li>
+    <li>@Html.ActionLink("View Transcript", "ViewTranscript")</li>
+    <li>@Html.ActionLink("View Current Course SChedule", "ViewCurrentCourseSChedule")</li>
+    <li>@Html.ActionLink("View Course", "ViewCourse")</li>
+    <li>@Html.ActionLink("View Courses", "ViewCourses")</li>
+    <li>etc</li>
+</ul>
