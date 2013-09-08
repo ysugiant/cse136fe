@@ -99,10 +99,11 @@ namespace web136.Controllers
     [HttpPost]
     public ActionResult Edit(FormCollection collection)
     {
+        PLDepartment dpt = DepartmentClientService.GetDepartmentDetail(collection["ID"]);
         try
         {
             PLDepartment department = new PLDepartment();
-            department.ID = Convert.ToInt32(collection["ID"]);
+            department.ID = Convert.ToInt32(dpt.ID);
             department.deptName = collection["deptName"];
             department.chair_id = Convert.ToInt32(collection["chair_id"]);
             DepartmentClientService.UpdateDepartment(department);

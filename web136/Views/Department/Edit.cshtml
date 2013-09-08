@@ -24,9 +24,9 @@
             @Html.LabelFor(model => model.chair_id)
             </div>
             <div class="editor-field">
-                @Html.DropDownList("chair_id", (List<SelectListItem>)ViewData["listStaff"])
+                @Html.DropDownList("chair_id", (List<SelectListItem>)ViewData["listStaff"]) 
             </div>
-            
+            @Html.HiddenFor(model =>model.ID) 
             <p>
                 <input type="submit" value="Save" />
             </p>
