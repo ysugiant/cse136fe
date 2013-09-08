@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using web136.Models.Schedule;
+using web136.Models.Student;
+using web136.Models.Major;
+using web136.Models.Department;
 
 namespace web136.Controllers
 {
@@ -16,67 +19,83 @@ namespace web136.Controllers
         {
             if (Session["role"] != null)
             {
-                if (Session["role"].Equals("instructor") || Session["role"].Equals("advisor") || Session["role"].Equals("staff"))
+                if (Session["role"].Equals("student"))
                     return View();
             }
+
+            PLStudent student = StudentClientService.GetStudentDetail(Session["id"].ToString());
+            PLMajor major = MajorClientService.GetMajorDetail(student.Major);
+            PLDepartment department = new PLDepartment();
+            List<PLDepartment> departmentList = DepartmentClientService.GetDepartmentList();
+            foreach (PLDepartment dept in departmentList)
+            {
+                if (dept.ID == major.dept_id)
+                {
+                    department = dept;
+                    break;
+                }
+            }
+
+            string studentName = student.LastName + ", " + student.FirstName;
+            string majorName = major.major_name;
+            string departmentName = department.deptName;
+
+            ViewBag.studentName = "TestName";
+            ViewBag.majorName = "TestMajor";
+            ViewBag.departmentName = "TestDepartment";
+
             return View("Error");
         }
 
-        public ActionResult ClassList(int instID)
-        {
-            List<PLScheduledCourse> list = ScheduleClientService.GetScheduleList(2012, "FALL");
-            List<PLScheduledCourse> res = new List<PLScheduledCourse>();
-            if (list != null)
-            {
-                foreach (PLScheduledCourse tmp in list)
-                {
-                    if (instID == tmp.instructorID)
-                        res.Add(tmp);
-                }
-            }
-            return View("ClassList", res);
-        }
-
         //View
-        public ActionResult Student()
+
+        //PLStudent.Update (password only)
+        public ActionResult EditStudentRecord()
         {
-            return RedirectToAction("Index", "Student");
+            return RedirectToAction("Edit", "Student");
         }
 
-        public ActionResult ScheduleDay()
+        //PLStudent.Get Info
+        public ActionResult ViewStudentRecord()
         {
-            return RedirectToAction("Index", "ScheduleDay");
+            return RedirectToAction("Get", "Student");
         }
 
-        public ActionResult ScheduleTime()
+        //PLEnrollment. (Add and Drop Class)
+        public ActionResult RegisterForClass()
         {
-            return RedirectToAction("Index", "ScheduleTime");
+            return RedirectToAction("Register", "Enrollment");
         }
 
-        public ActionResult Staff()
+        //PLEnrollment. (Transcript)
+        public ActionResult ViewTranscript()
         {
-            return RedirectToAction("Index", "Staff");
+            return RedirectToAction("Transcript", "Enrollment", new { stID = Session["id"] });
         }
 
-        public ActionResult Course()
+        //PLEnrollment. (Enrolled Schedule)
+        public ActionResult ViewCurrentCourseSChedule()
         {
-            return RedirectToAction("Index", "Course");
+            return RedirectToAction("StudentSchedule", "Enrollment", new { stID = Session["id"] });
         }
 
-        public ActionResult Major()
+        /*
+        //PLDepartment.Get List
+        public ActionResult Department()
         {
-            return RedirectToAction("Index", "Major");
+            return RedirectToAction("", "Department");
+        }*/
+
+        //PLCourse.Get Info
+        public ActionResult ViewCourse()
+        {
+            return RedirectToAction("Get", "Course");
         }
 
-        public ActionResult Schedule()
+        //PLCourse.Get List
+        public ActionResult ViewCourses()
         {
-            return RedirectToAction("Index", "ScheduledCourse");
+            return RedirectToAction("List", "Course");
         }
-
-        public ActionResult Enrollment()
-        {
-            return RedirectToAction("Index", "Enrollment");
-        }
-        
     }
 }

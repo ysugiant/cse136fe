@@ -725,12 +725,11 @@
     <Content Include="Views\ScheduledCourse\List.cshtml" />
     <Content Include="Views\ScheduledCourse\DisplayTemplates\PLScheduledCourse.cshtml" />
     <Content Include="Views\Enrollment\Register.cshtml" />
-    <Content Include="Views\Enrollment\ChangesGrade.cshtml" />
-    <Content Include="Views\Enrollment\ChangeGrade.cshtml" />
+    <Content Include="Views\Enrollment\Edit.cshtml" />
+    <Content Include="Views\StudentHome\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\StudentHome\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
