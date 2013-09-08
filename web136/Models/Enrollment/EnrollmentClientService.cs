@@ -117,7 +117,7 @@ namespace web136.Models.Enrollment
       return PLEnrollment;
     }
 
-
+/*
     private static PLScheduledCourse DTO_to_PL(SLEnrollment.ScheduledCourse s)
     {
         PLScheduledCourse mySchedule = new PLScheduledCourse();
@@ -133,6 +133,35 @@ namespace web136.Models.Enrollment
       mySchedule.course.units = s.course.units;
 
       return mySchedule;
+    }*/
+
+    private static PLScheduledCourse DTO_to_PL(SLEnrollment.ScheduledCourse s)
+    {
+        PLScheduledCourse mySchedule = new PLScheduledCourse();
+
+        mySchedule.schedule_id = s.id;
+        mySchedule.year = s.year;
+        mySchedule.quarter = s.quarter;
+        mySchedule.session = s.session;
+
+        Course.PLCourse myCourse = new Course.PLCourse();
+        myCourse.id = s.course.id;
+
+        myCourse.description = s.course.description;
+        myCourse.courseLevel = s.course.level.ToString();
+        myCourse.title = s.course.title;
+        myCourse.units = s.course.units;
+
+        mySchedule.dayID = s.dayID;
+        mySchedule.day = s.day;
+        mySchedule.timeID = s.timeID;
+        mySchedule.time = s.time;
+        mySchedule.instructorID = s.instr_id;
+        mySchedule.firstName = s.instructor_fName;
+        mySchedule.lastName = s.instructor_lName;
+        mySchedule.course = myCourse;
+
+        return mySchedule;
     }
   }
 }

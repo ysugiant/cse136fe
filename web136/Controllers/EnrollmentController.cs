@@ -49,10 +49,16 @@ namespace web136.Controllers
     {
         if (Session["role"] != null && Session["role"].Equals("student"))
         {
-            List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
+            List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
+            List<PLEnrollment> res = new List<PLEnrollment>();
+            foreach (PLEnrollment tmp in list)
+            {
+                if (tmp.studentID.Equals(stID))
+                    res.Add(tmp);
+            }
             ViewBag.breadCrumbData = "Schedule List";
 
-            return View("StudentSchedule", list);
+            return View("StudentSchedule", res);
         }
         else
             return View("Error");
@@ -70,6 +76,7 @@ namespace web136.Controllers
         else
             return View("Error");
     }
+
 
       public double GetTotalGPA( List<PLEnrollment> list)
       {
@@ -132,20 +139,22 @@ namespace web136.Controllers
       }
     }
 
-    //
+    //Change grade for instructor
     // GET: /Enrollment/Create
-    /*public ActionResult Edit(string student_id, string schedule_id, string grade)
+    public ActionResult Edit(string schedule_id)
     {
-      if (HttpContext != null)
-      {
-        UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
-        ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Enrollment") + "'>Enrollment List</a>";
-        ViewBag.breadCrumbData += " > Edit";
-      }
+        List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
 
-      PLEnrollment enrollment = EnrollmentClientService.GetEnrollmentDetail(student_id, schedule_id, grade);
-      return View("Edit", enrollment);
-    }*/
+        List<PLEnrollment> res = new List<PLEnrollment>();
+        foreach (PLEnrollment tmp in list)
+        {
+            if (tmp.scheduledCourse.schedule_id == Convert.ToInt32(schedule_id))
+                res.Add(tmp);
+        }
+
+        ViewBag.breadCrumbData = "Change Grade";
+        return View("List", res);
+    }
 
     //
     // POST: /Enrollment/Edit/
@@ -231,7 +240,7 @@ namespace web136.Controllers
       ViewBag.YearList = YearList;
       ViewBag.QuarterList = QuarterList;
 
-      return View("Index", scheduleList);
+      return View("Register", scheduleList);
     }
 
     public ActionResult Filter(string yearFilter, string quarterFilter)
