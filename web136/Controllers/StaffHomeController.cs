@@ -77,6 +77,11 @@ namespace web136.Controllers
         {
             return RedirectToAction("Index", "Enrollment");
         }
+
+        public ActionResult Department()
+        {
+            return RedirectToAction("Index", "Department");
+        }
         
     }
 }

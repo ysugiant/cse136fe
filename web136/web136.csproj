@@ -724,6 +724,8 @@
     <Content Include="Views\ScheduledCourse\Delete.cshtml" />
     <Content Include="Views\ScheduledCourse\List.cshtml" />
     <Content Include="Views\ScheduledCourse\DisplayTemplates\PLScheduledCourse.cshtml" />
+    <Content Include="Views\Enrollment\Register.cshtml" />
+    <Content Include="Views\Enrollment\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -763,7 +765,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49576</DevelopmentServerPort>
+          <DevelopmentServerPort>51886</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:49214/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

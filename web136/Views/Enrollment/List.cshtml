@@ -9,6 +9,8 @@
 
 <table id="tableTranscriptList">
     <tr>
+        <th>Edit</th>
+        <th>Student ID</th>
         <th>Quarter</th>
         <th>Year</th>
         <th>Course Title</th>
@@ -21,6 +23,12 @@
     {
     
         <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { student_id = item.studentID, schedule_id = item.scheduledCourse.schedule_id })
+            </td>
+            <td>
+                @item.studentID
+            </td>
             <td>
                 @item.scheduledCourse.quarter
             </td>
