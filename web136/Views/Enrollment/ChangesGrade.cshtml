@@ -25,7 +25,7 @@
                 @item.grade
             </td>
             <td>
-                @Html.RadioButton();
+                @Html.ActionLink("Edit", "EditGrade", new { stID = item.studentID, schID = item.scheduledCourse.schedule_id, grade = item.grade })
             </td>
         </tr>
     
