@@ -24,6 +24,8 @@ namespace web136.Models.Logon
       PLLogon PLLogon = new PLLogon();
       PLLogon.ID = logon.id;
       PLLogon.Role = logon.role;
+      PLLogon.Chair = logon.chair;
+
 
       return PLLogon;
     }

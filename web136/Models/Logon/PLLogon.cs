@@ -9,6 +9,7 @@ namespace web136.Models.Logon
   {
     public string ID { get; set; }
     public string Role { get; set; }
+    public string Chair { get; set; }
   }
 
 }

@@ -36,18 +36,16 @@ namespace web136.Controllers
           Session["role"] = logon.Role;
           Session["id"] = logon.ID;
           Session["email"] = email;
+          Session["chair"] = logon.Chair;
 
-          if (Session["role"].Equals("admin"))
-          {
-            return RedirectToAction("Index", "Admin");
-          }
-          else if (Session["role"].Equals("staff"))
+          
+          if (Session["role"].Equals("staff") || Session["role"].Equals("instructor") || Session["role"].Equals("advisor"))
           {
             return RedirectToAction("Index", "StaffHome");
           }
           else if (Session["role"].Equals("student"))
           {
-              return RedirectToAction("Index", "ScheduledCourse");
+              return RedirectToAction("Index", "StudentHome");
           }
         }
       }
