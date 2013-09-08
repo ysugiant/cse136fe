@@ -70,7 +70,9 @@ namespace web136.Controllers
               ViewBag.breadCrumbData = "<a href='" + url.Action("Edit", "Schedule") + "'>Edit Schedule</a>";
               ViewBag.breadCrumbData += " > Edit";
           }
-          PLScheduledCourse sched = ScheduleClientService.GetStudentDetail(Convert.ToInt32(id));
+          PLScheduledCourse sched = ScheduleClientService.GetScheduleDetail(Convert.ToInt32(id));
+          System.Diagnostics.Debug.WriteLine("TIME: " +sched.time);
+          System.Diagnostics.Debug.WriteLine("DAY: " + sched.day);
           return View("Edit", sched);
       }
 

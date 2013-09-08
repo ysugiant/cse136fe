@@ -57,7 +57,7 @@ namespace web136.Models.Schedule
         /// </summary>
         /// <param name="id"></param>
         /// <returns>PLScheduleCourse</returns>
-        public static PLScheduledCourse GetStudentDetail(int id)
+        public static PLScheduledCourse GetScheduleDetail(int id)
         {
             SLSchedule.ISLCourseSchedule SLSchedule = new SLSchedule.SLCourseScheduleClient();
 

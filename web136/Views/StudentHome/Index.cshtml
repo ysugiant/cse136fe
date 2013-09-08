@@ -6,36 +6,23 @@
 
 <h2>Student Menu</h2>
 
-<table id="tableMajorList">
-    <tr>
-        <th>Student Name
-        </th>
-        <th>Major
-        </th>
-        <th>Department
-        </th>
-    </tr>
-
-    <tr>
-        <td>
-            @ViewBag.studentName
-        </td>
-        <td>
-            @ViewBag.majorName
-        </td>
-        <td>
-            @ViewBag.departmentName
-        </td>
-
-    </tr>
-</table>
+<div>
+Student Name: @ViewData["studentName"] <br />
+Email: @ViewData["studentEmail"] <br />
+SSN: @ViewData["studentSSN"] <br />
+Student Level: @ViewData["studentLevel"] <br />
+Major Name: @ViewData["majorName"] <br />
+Department: @ViewData["departmentName"] <br />
+Status: @ViewData["studentStatus"] <br />
+Weight: @ViewData["studentWeight"] <br />
+Shoe Size: @ViewData["studentShoeSize"] <br />
+@Html.ActionLink("Change Password", "ChangePassword") <br />
+</div>
 
 <ul>
-    <li>@Html.ActionLink("Edit Student Record", "EditStudentRecord")</li>
-    <li>@Html.ActionLink("View Student Record", "ViewStudentRecord")</li>
     <li>@Html.ActionLink("Register", "RegisterForClass")</li>
     <li>@Html.ActionLink("View Transcript", "ViewTranscript")</li>
-    <li>@Html.ActionLink("View Current Course SChedule", "ViewCurrentCourseSChedule")</li>
+    <li>@Html.ActionLink("View Current Course Schedule", "ViewCurrentCourseSChedule")</li>
     <li>@Html.ActionLink("View Course", "ViewCourse")</li>
     <li>@Html.ActionLink("View Courses", "ViewCourses")</li>
     <li>etc</li>

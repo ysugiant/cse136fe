@@ -20,29 +20,77 @@ namespace web136.Controllers
             if (Session["role"] != null)
             {
                 if (Session["role"].Equals("student"))
-                    return View();
-            }
-
-            PLStudent student = StudentClientService.GetStudentDetail(Session["id"].ToString());
-            PLMajor major = MajorClientService.GetMajorDetail(student.Major);
-            PLDepartment department = new PLDepartment();
-            List<PLDepartment> departmentList = DepartmentClientService.GetDepartmentList();
-            foreach (PLDepartment dept in departmentList)
-            {
-                if (dept.ID == major.dept_id)
                 {
-                    department = dept;
-                    break;
+                    PLStudent student = StudentClientService.GetStudentDetail(Session["id"].ToString());
+                    PLMajor major = MajorClientService.GetMajorDetail(student.Major);
+                    PLDepartment department = new PLDepartment();
+                    List<PLDepartment> departmentList = DepartmentClientService.GetDepartmentList();
+                    foreach (PLDepartment dept in departmentList)
+                    {
+                        if (dept.ID == major.dept_id)
+                        {
+                            department = dept;
+                            break;
+                        }
+                    }
+
+                    string studentName = student.LastName + ", " + student.FirstName;
+                    string majorName = major.major_name;
+                    string departmentName = department.deptName;
+
+                    string studentLevel = "";
+                    switch (Convert.ToInt32(student.StudentLevel))
+                    {
+                        case 0:
+                            studentLevel = "freshman";
+                            break;
+                        case 1:
+                            studentLevel = "sophomore";
+                            break;
+                        case 2:
+                            studentLevel = "junior";
+                            break;
+                        case 3:
+                            studentLevel = "senior";
+                            break;                        
+                        case 4:
+                            studentLevel = "grad";
+                            break;
+                        case 5:
+                            studentLevel = "phd";
+                            break;
+                    }
+
+                    string studentStatus = "";
+                    switch (Convert.ToInt32(student.Status))
+                    {
+                        case 0:
+                            studentStatus = "Good Standing";
+                            break;
+                        case 1:
+                            studentStatus = "Probation";
+                            break;
+                        case 2:
+                            studentStatus = "Subject for Disqualification";
+                            break;
+                        case 3:
+                            studentStatus = "Disqualification";
+                            break;
+                    }
+
+                    ViewData["studentName"] = studentName;
+                    ViewData["studentSSN"] = student.SSN;
+                    ViewData["studentEmail"] = student.EmailAddress;
+                    ViewData["studentShoeSize"] = student.ShoeSize;
+                    ViewData["studentWeight"] = student.Weight;
+                    ViewData["studentLevel"] = studentLevel;
+                    ViewData["studentStatus"] = studentStatus;
+                    ViewData["majorName"] = majorName;
+                    ViewData["departmentName"] = departmentName;
+
+                    return View();
                 }
             }
-
-            string studentName = student.LastName + ", " + student.FirstName;
-            string majorName = major.major_name;
-            string departmentName = department.deptName;
-
-            ViewBag.studentName = "TestName";
-            ViewBag.majorName = "TestMajor";
-            ViewBag.departmentName = "TestDepartment";
 
             return View("Error");
         }
@@ -50,15 +98,9 @@ namespace web136.Controllers
         //View
 
         //PLStudent.Update (password only)
-        public ActionResult EditStudentRecord()
+        public ActionResult ChangePassword()
         {
-            return RedirectToAction("Edit", "Student");
-        }
-
-        //PLStudent.Get Info
-        public ActionResult ViewStudentRecord()
-        {
-            return RedirectToAction("Get", "Student");
+            return RedirectToAction("ChangePassword", "Student", new { stID = Session["id"] });
         }
 
         //PLEnrollment. (Add and Drop Class)
