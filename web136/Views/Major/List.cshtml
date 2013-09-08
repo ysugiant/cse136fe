@@ -9,7 +9,7 @@
 
 <table id="tableMajorList">
     <tr>
-        <th></th>
+        
         <th>Major ID
         </th>
         <th>Major Name
@@ -17,31 +17,39 @@
         <th>Department ID
         </th>
     </tr>
-
-    @foreach (var item in Model)
-    {
-    
+    <tbody data-bind="foreach: viewModel">
         <tr>
-            <td style="width:50px;">
-                @Html.ActionLink("Edit", "Edit", new { id = item.major_id }) 
-            </td>
-            <td>
-                @item.major_id
-            </td>
-            <td>
-                @item.major_name
-            </td>
-            <td>
-                @item.dept_id
-            </td>
-
+            <td data-bind="text: major_id"></td>
+            <td data-bind="text: major_name"></td>
+             <td data-bind="text: dept_id"></td>
         </tr>
-    
-    }
+    </tbody>
 
 </table>
+
 <div>
     @Html.ActionLink("Create Major", "Create") <br />
     @Html.ActionLink("Delete Major", "Delete") <br />
     @Html.ActionLink("Get Major", "Get") <br />
 </div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "/Major/GetMajorList",
+            data: "",
+            dataType: "json",
+            success: function (majorList) {
+                var majorListViewModel = new Array();
+                for (var i = 0; i < majorList.length; i++) {
+                    majorListViewModel[i] = { major_id: majorList[i].major_id, major_name: majorList[i].major_name, dept_id: majorList[i].dept_id };
+                }
+                ko.applyBindings({ viewModel: majorListViewModel });
+            },
+            error: function () {
+                alert('Error while loading course list.  Is your service layer running?');
+            }
+        });
+    });
+
+</script>

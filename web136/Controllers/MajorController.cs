@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using web136.Models.Major;
 using web136.Models.Department;
+using System.Web.Script.Serialization;
 
 namespace web136.Controllers
 {
@@ -23,6 +24,15 @@ namespace web136.Controllers
         }
         PLMajor major = new PLMajor();
         return View("Create", major);
+    }
+    public ActionResult GetMajorList()
+    {
+        List<PLMajor> majorList = MajorClientService.GetMajorList();
+        JavaScriptSerializer jsonSerialiser = new JavaScriptSerializer();
+        string majorListJson = jsonSerialiser.Serialize(majorList);
+
+        // return the JSON string
+        return Content(majorListJson);
     }
 
     //
