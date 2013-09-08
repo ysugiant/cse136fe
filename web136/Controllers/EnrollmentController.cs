@@ -11,20 +11,7 @@ namespace web136.Controllers
 {
   public class EnrollmentController : Controller
   {
-    /*public string GetNumEnrollmentsTotal()
-    {
-      List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
-      return list.Count.ToString();
-    }
-
-    public JsonResult GetSampleEnrollment(int idx)
-    {
-      List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
-
-      return this.Json(list[idx], JsonRequestBehavior.AllowGet);
-    }
-*/
-
+    //Show the whole enrollment table
     public ActionResult Index()
     {
         List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
@@ -32,9 +19,10 @@ namespace web136.Controllers
         return View("List", list);
     }
 
+    //Student can access this function
     public ActionResult Transcript(string stID)
     {
-        if (Session["role"] != null && Session["role"].Equals("student"))
+        if (Session["role"] != null && (Session["role"].Equals("student") || Session["role"].Equals("advisor")))
         {
             List<PLEnrollment> list = EnrollmentClientService.GetStudentEnrollmentList(stID);
             ViewBag.breadCrumbData = "Transcript List";
@@ -141,7 +129,7 @@ namespace web136.Controllers
 
     //Change grade for instructor
     // GET: /Enrollment/Create
-    public ActionResult Edit(string schedule_id)
+    public ActionResult EditGrades(string schedule_id)
     {
         List<PLEnrollment> list = EnrollmentClientService.GetEnrollmentList();
 
@@ -153,18 +141,43 @@ namespace web136.Controllers
         }
 
         ViewBag.breadCrumbData = "Change Grade";
-        return View("List", res);
+        return View("ChangesGrade", res);
+    }
+
+    public ActionResult EditGrade(string schID, string stID, string grade)
+    {
+        List<SelectListItem> list = new List<SelectListItem>();
+        list.Add(new SelectListItem{Value ="INPROGRESS", Text = "IN PROGRESS"});
+        list.Add(new SelectListItem{Value ="APLUS", Text = "A+"});
+        list.Add(new SelectListItem{Value ="A", Text = "A"});
+        list.Add(new SelectListItem{Value ="AMINUS", Text = "A-"});
+        list.Add(new SelectListItem{Value ="BPLUS", Text = "B+"});
+        list.Add(new SelectListItem{Value ="B", Text = "B"});
+        list.Add(new SelectListItem{Value ="BMINUS", Text = "B-"});
+        list.Add(new SelectListItem{Value ="CPLUS", Text = "C+"});
+        list.Add(new SelectListItem{Value ="C", Text = "C"});
+        list.Add(new SelectListItem{Value ="CMINUS", Text = "C-"});
+        list.Add(new SelectListItem{Value ="D", Text = "D"});
+        list.Add(new SelectListItem{Value = "F", Text = "F" });
+
+        ViewBag.stID = stID;
+        ViewBag.schID = schID;
+        ViewBag.grade = grade;
+        ViewBag.list = list;
+
+        ViewBag.breadCrumbData = "Change Grade";
+        return View("ChangeGrade");
     }
 
     //
     // POST: /Enrollment/Edit/
     [HttpPost]
-    public ActionResult Edit(string student_id, string schedule_id, string grade, FormCollection collection)
+    public ActionResult EditGrade(FormCollection collection)
     {
       try
       {
-        EnrollmentClientService.UpdateEnrollment(student_id, Convert.ToInt32(schedule_id), grade);
-        return RedirectToAction("Index");
+        EnrollmentClientService.UpdateEnrollment(collection["student_id"], Convert.ToInt32(collection["schedule_id"]), collection["grade"]);
+        return RedirectToAction("EditGrades");
       }
       catch
       {
@@ -175,14 +188,14 @@ namespace web136.Controllers
     //
     // GET: /Enrollment/Delete/5
 
-    public ActionResult Delete(string student_id, string schedule_id)
+    public ActionResult Delete(string stID, string schID)
     {
       try
       {
-        bool success = EnrollmentClientService.DeleteEnrollment(student_id, Convert.ToInt32(schedule_id));
+        bool success = EnrollmentClientService.DeleteEnrollment(stID, Convert.ToInt32(schID));
 
         if (success)
-          return RedirectToAction("Index");
+            return RedirectToAction("StudentSchedule", new { stID = stID });
 
         return RedirectToAction("Error");
       }

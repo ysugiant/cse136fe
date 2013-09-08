@@ -5,10 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Transcript</h2>
+<h2>Schedule</h2>
 
 <table id="tableScheduleList">
     <tr>
+        <th>Drop</th>
         <th>Quarter</th>
         <th>Year</th>
         <th>Course Title</th>
@@ -19,8 +20,10 @@
 
     @foreach (var item in Model)
     {
-    
         <tr>
+            <td>
+                @Html.ActionLink("Drop", "Delete", new{stID= item.studentID, schID= item.scheduledCourse.schedule_id})
+            </td>
             <td>
                 @item.scheduledCourse.quarter
             </td>
@@ -37,7 +40,7 @@
                 @item.scheduledCourse.course.units
             </td>
             <td>
-                @item.scheduledCourse.firstName + @item.scheduledCourse.lastName
+                @item.scheduledCourse.firstName @item.scheduledCourse.lastName
             </td>
         </tr>
     
