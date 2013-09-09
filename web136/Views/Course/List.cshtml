@@ -1,0 +1,70 @@
+﻿@model IEnumerable<web136.Models.Course.PLCourse>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="" onclick="return GetNumCourseTotal()">Click for # Courses so far... (json call)</a>
+
+<div id="DivNumCourses"></div>
+
+<h2>Course List</h2>
+
+<table id="tableMajorList">
+    <tr>
+        <th></th>
+        <th>Course ID
+        </th>
+        <th>Course Title
+        </th>
+        <th>Course Description
+        </th>
+        <th>Course Units
+        </th>
+        <th>Course Prerequisite List
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    
+        <tr>
+            <td style="width:50px;">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) 
+            </td>
+            <td>
+                @item.id
+            </td>
+            <td>
+                @item.title
+            </td>
+            <td>
+                @item.description
+            </td>
+            <td>
+                @item.units
+            </td>
+
+        </tr>
+    
+    }
+
+</table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+
+    });
+
+    function GetNumMajorTotal() {
+        $.getJSON(
+            '/Student/GetNumMajorsTotal',
+            function (data) {
+                $("#DivNumMajor").html(data);
+            });
+
+        return false; // this prevents the page from going to "nowhere"
+    }
+
+</script>

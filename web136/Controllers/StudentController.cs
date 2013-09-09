@@ -51,18 +51,6 @@ namespace web136.Controllers
     [HttpPost]
     public ActionResult Create(FormCollection collection)
     {
-        /*int year = DateTime.Now.Year;
-        int previousYear = year - 1;
-        int nextYear = year + 1;
-
-        // only display the current year, previous year, and next year as selections
-        List<SelectListItem> MajorList = new List<SelectListItem>();
-        MajorList.Add(new SelectListItem { Text = "All Years", Value = "" });
-        MajorList.Add(new SelectListItem { Text = previousYear.ToString(), Value = previousYear.ToString() });
-        MajorList.Add(new SelectListItem { Text = year.ToString(), Value = year.ToString() });
-        MajorList.Add(new SelectListItem { Text = nextYear.ToString(), Value = nextYear.ToString() });
-
-        ViewBag.MajorList = MajorList;*/
       try
       {
         PLStudent student = new PLStudent();
@@ -86,6 +74,46 @@ namespace web136.Controllers
         return View();
       }
     }
+
+    public ActionResult ChangePassword(string id, FormCollection collection)
+    {
+        PLStudent student = StudentClientService.GetStudentDetail(id);//new PLStudent();
+
+        if (collection.Count == 0)
+        {
+            return View("ChangePassword", student);
+        }
+
+        try
+        {
+            //PLStudent student = StudentClientService.GetStudentDetail(collection["ID"]);//new PLStudent();
+            student.Password = collection["Password"];
+            StudentClientService.UpdateStudent(student);
+            return RedirectToAction("Index");// this brings us to the student List page
+        }
+        catch (Exception e)
+        {
+            Console.Write(e.ToString());
+            return RedirectToAction("Error");
+        }
+       //return View("ChangePassword", student);
+    }
+
+    /*public ActionResult ChangePassword(FormCollection collection)
+    {
+        try
+        {
+            PLStudent student = StudentClientService.GetStudentDetail(collection["ID"]);//new PLStudent();
+            student.Password = collection["Password"];
+            StudentClientService.UpdateStudent(student);
+            return RedirectToAction("Index");// this brings us to the student List page
+        }
+        catch (Exception e)
+        {
+            Console.Write(e.ToString());
+            return RedirectToAction("Error");
+        }
+    }*/
 
     //
     // GET: /Student/Edit

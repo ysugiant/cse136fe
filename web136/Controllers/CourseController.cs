@@ -54,13 +54,24 @@ namespace web136.Controllers
             ViewBag.breadCrumbData += " > Create";
         }
         PLCourse Course = new PLCourse();
+
+        //Displaying all Department names
+        List<SelectListItem> LevelList = new List<SelectListItem>();
+
+        LevelList.Add(new SelectListItem { Text = "Lower Division", Value = "lower"});
+        LevelList.Add(new SelectListItem { Text = "Upper Division", Value = "upper" });
+        LevelList.Add(new SelectListItem { Text = "Graduate Division", Value = "grad" });
+        LevelList.Add(new SelectListItem { Text = "Post-Graduate Divsion", Value = "phd" });
+
+        ViewBag.LevelList = LevelList;
+
         return View("Create", Course);
     }
 
     //
     // POST: /Course/Create
     [HttpPost]
-    public ActionResult CreateCourse(FormCollection collection)
+    public ActionResult Create(FormCollection collection, string levelFilter)
     {
         try
         {
@@ -68,8 +79,11 @@ namespace web136.Controllers
            // we don't need course id Course.id = Convert.ToInt32( collection["id"]);
             Course.title = collection["title"];
             Course.description = collection["description"];
-            Course.courseLevel = collection["courseLevel"];
+            Course.courseLevel = levelFilter;//collection["courseLevel"];
             Course.units = Convert.ToInt32(collection["units"]);
+            //Course.prerequisiteList = new List<PLCourse>();
+
+            //CourseClientService.GetCourseDetail(collection["title"]);
             CourseClientService.CreateCourse(Course);
             return RedirectToAction("Index");
         }
@@ -81,8 +95,8 @@ namespace web136.Controllers
     }
 
     //
-    // GET: /Course/Create
-    public ActionResult Edit(string id)
+    // GET: /Course/Edit
+    public ActionResult Edit(string title)
     {
         if (HttpContext != null)
         {
@@ -90,20 +104,23 @@ namespace web136.Controllers
             ViewBag.breadCrumbData = "<a href='" + url.Action("Index", "Course") + "'>Course List</a>";
             ViewBag.breadCrumbData += " > Edit";
         }
-
-        PLCourse Course = CourseClientService.GetCourseDetail(id);
+        /*if (title == null)
+        {
+            return RedirectToAction("Index");
+        }*/
+        PLCourse Course = CourseClientService.GetCourseDetail(title);
         return View("Edit", Course);
     }
 
     //
     // POST: /Course/Edit/
     [HttpPost]
-    public ActionResult Edit(string id, FormCollection collection)
+    public ActionResult Edit(FormCollection collection)
     {
         try
         {
             PLCourse Course = new PLCourse();
-            Course.id = Convert.ToInt32(collection["id"]);
+            Course.id = CourseClientService.GetCourseDetail(collection["title"]).id;//collection["id"];//title;//Convert.ToInt32(collection["id"]);
             Course.title = collection["title"];
             Course.description = collection["description"];
             Course.courseLevel = collection["courseLevel"];
@@ -115,6 +132,19 @@ namespace web136.Controllers
         {
             return View();
         }
+    }
+
+    // GET: /Course/Get/
+    public ActionResult Get(string courseTitle)
+    {
+        if (HttpContext != null)
+        {
+            UrlHelper url = new UrlHelper(HttpContext.Request.RequestContext);
+            ViewBag.breadCrumbData = "<a href='" + url.Action("Get", "Course") + "'>Get Course</a>";
+            ViewBag.breadCrumbData += " > Get";
+        }
+        PLCourse course = CourseClientService.GetCourseDetail(courseTitle);
+        return View("Get", course);
     }
 
     [HttpPost]
@@ -149,14 +179,23 @@ namespace web136.Controllers
         }
     }
 
-    //
-    // GET: /Course/Delete/5
-
-    public ActionResult DeleteCourse(string id)
+    // GET: /Course/Delete/
+    public ActionResult Delete(string title)
     {
         try
         {
-            bool success = CourseClientService.DeleteCourse(id);
+            PLCourse Course = new PLCourse();
+            Course = CourseClientService.GetCourseDetail(title);
+            if (Course.prerequisiteList.Count > 0)
+            {
+                for (int i = 0; i < Course.prerequisiteList.Count; i++)
+                {
+                    CourseClientService.DeletePrerequisite(Course.id, Course.prerequisiteList[i].id);
+                }
+
+            }
+            
+            bool success = CourseClientService.DeleteCourse(title);
 
             if (success)
                 return RedirectToAction("Index");
@@ -165,7 +204,7 @@ namespace web136.Controllers
         }
         catch
         {
-            return View();
+            return RedirectToAction("Index");//View("Index");
         }
     }
 

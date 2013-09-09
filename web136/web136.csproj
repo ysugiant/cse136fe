@@ -727,6 +727,13 @@
     <Content Include="Views\Enrollment\Register.cshtml" />
     <Content Include="Views\Enrollment\Edit.cshtml" />
     <Content Include="Views\StudentHome\Index.cshtml" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
+    <Content Include="Views\Course\DisplayTemplates\PLCourse.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Get.cshtml" />
+    <Content Include="Views\Course\List.cshtml" />
+    <Content Include="Views\Student\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

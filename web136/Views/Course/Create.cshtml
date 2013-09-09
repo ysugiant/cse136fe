@@ -1,0 +1,93 @@
+﻿@model web136.Models.Course.PLCourse
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Course</h2>
+
+<input id="buttonGetSampleMajor" type="button" value="Click for an existing Course" />
+
+<div id="CreateCourse"></div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true) 
+
+    <fieldset>
+        <legend>Fields</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.title)
+            @Html.ValidationMessageFor(model => model.title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.courseLevel)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("levelFilter", (List<SelectListItem>)ViewData["LevelList"])
+            <!--Html.TextBoxFor(model => model.courseLevel)
+            Html.ValidationMessageFor(model => model.courseLevel) -->
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.description)
+            @Html.ValidationMessageFor(model => model.description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.units)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.units)
+            @Html.ValidationMessageFor(model => model.units)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<br />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajaxSettings.cache = false;
+        $(buttonGetSampleMajor).click(function () {
+            $.getJSON(
+              '/Course/GetSampleCourse/',
+              { idx: '1' },
+              function (data) {
+                  var info = "";
+                  info += "Course ID: " + data.major_id + "<br />";
+                  info += "Course Name: " + data.major_name + "<br />";
+                  //info += "Department ID: " + data.dept_id + "<br />";
+
+                  // using jquery library to prepopulate the sample data...
+                  //$("#major_id").attr("value", "");
+                  $("#course_title").attr("value", "HIS_174");
+                  $("#course_level").attr("value", "lower");
+                  $("#course_description").attr("value", "History of the World!");
+                  $("#course_units").attr("value", 4);
+
+                  $(Major).html(info);
+              });
+        });
+
+    });
+
+</script>
+
